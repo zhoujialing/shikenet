@@ -1,0 +1,53 @@
+
+.c_right ul li {
+  padding: 15px 0 0 45px;
+}
+
+.c_right .txt_com {
+  width: 270px;
+  height: 35px;
+  line-height: 30px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  padding-left: 7px;
+}
+.c_right label {
+display: block;
+  font-size: 14px;
+  color: red;
+}
+.c_right #yzm {
+  display: inline-block;
+  width: 130px;
+  height: 35px;
+  line-height: 35px;
+  background-color: #f8f8f8;
+  color: #2da1e7;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 15px;
+  margin-left: 10px;
+}
+.c_right .yzm_box {
+  display: flex;
+  align-items: center;
+}
+.c_right .ckb {
+  vertical-align: middle;
+}
+.c_right a {
+  font-size: 13px;
+  font-family: "微软雅黑";
+}
+.c_right .btn_com {
+  width: 270px;
+  height: 35px;
+  font-size: 16px;
+  line-height: 35px;
+  background: url(./../images/reg_title.jpg) repeat-x scroll 0 -183px;
+  color: #fff;
+  border: 0;
+  text-align: center;
+}

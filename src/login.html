@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/register.css">
+    <link rel="stylesheet" href="./js/idcode/css/jquery.idcode.css">
+    <script src="./js/idcode/js/jquery-1.12.3.min.js"></script>
+    <script src="./js/layer/layer.js"></script>
+    <script src="./js/idcode/js/jquery.idcode.js"></script>
+</head>
+
+<div class="header">
+    <div class="h_center">
+        <img src="./images/header/logo_new.jpg" alt="">
+    </div>
+</div>
+<div class="center">
+    <div class="container clear">
+        <div class="c_left fl">
+            <img src="./images/product/c_left.jpg" alt="">
+        </div>
+        <div class="c_right fl">
+            <div class="rt_tab">
+                <div>用户登录</div>
+            </div>
+            <div class="rt_container">
+                <ul>
+                    <li>
+                        <form action="">
+                            <div class="txt">
+                                <input type="text" name="uname" placeholder="用户名" class="txt_com">
+                            </div>
+                            <div class="txt">
+                                <input type="password" name="upwd" placeholder="密码" class="txt_com">
+                            </div>
+                            <div class="txt">
+                                <input type="text" id="Txtidcode" class="txt_com txtVerification" placeholder="验证码" style="width: 140px">
+                                <span id="idcode"></span>
+                                <a href="Javascript:(0)" class="change">看不清换一张</a>
+                            </div>
+                            <div class="login">
+                                <button class="btn-login">登录</button>
+                                &nbsp;
+                                <a href="">忘记密码?</a>
+                            </div>
+                        </form>
+                    </li>
+                    <li>
+                        <div class="div_bot">
+                            <ul>
+                                <li>
+                                    <div class="div_tit"></div>
+                                    <div>合作官方账号</div>
+                                    <div class="div_tit"></div>
+                                </li>
+                                <li>
+                                    <span style="background: url(./images/Login_weixin.png);background-size: 100%;">
+                                    </span>
+                                    <span style="background: url(./images/Login_qq.png);background-size: 100%;">
+                                    </span>
+                                    <span style="background: url(./images/Login_weixin.png);background-size: 100%;">
+                                    </span>
+                                    <span style="background: url(./images/Login_qq.png);background-size: 100%;">
+                                    </span>
+                                </li>
+                                <li style="padding-top: 40px;font-size: 16px">还不是视客网会员?</li>
+                                <li style="padding-top: 10px;font-size: 13px">
+                                    <a href="./register.html">快速注册,尊享会员福利</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <div class="fo_center">
+        <p>Copyright ©2019 南京视客网络科技有限公司 版权所有. 法律顾问：秦在丛（执业编号：13201200411564699）</p>
+        <img src="./images/beiancode.jpg" alt="">
+        <a href="">
+            <img src="./images/center/police.png" alt="">
+            苏公网安备 32010402000492号
+        </a>
+    </div>
+</div>
+</body>
+
+</html>
+<script>
+    $(function () {
+        $.idcode.setCode();  //加载生成验证码方法
+
+        $(".change").on("click", function () {
+            $.idcode.setCode();
+        })
+
+        $("form").on("submit", function () {
+
+            //验证码通过了后,才能发送ajax
+            var IsBy = $.idcode.validateCode()
+            if (!IsBy) {
+                return false;
+            }
+
+            $.ajax({
+                url: "./../server/loginServer.php",
+                data: $("form").serialize(),
+                type: 'post',
+                dataType: "json",
+            }).done(function (res) {
+                var showIcom=res.status==1?1:2
+                layer.confirm(res.msg+',是否去主页',
+                    {
+                        icon: 1,
+                        title: "登录提示",
+                        btn: ['是的', '不去']
+                    },
+                    function () {
+                        location = "./shike.html";
+                        //如果登录成功了,就把当前登陆者的信息保存到localStorage
+                        localStorage.setItem("user", JSON.stringify(res.data));
+
+                    },
+                    function (index) {
+                        layer.close(index);
+                    });
+            })
+
+
+            return false;
+        })
+
+
+    })
+
+
+</script>

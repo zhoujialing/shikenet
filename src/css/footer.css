@@ -1,0 +1,126 @@
+/* 帮助区 */
+.help {
+  width: 1080px;
+  margin: 10px auto;
+  border-top: #e3e3e3 solid 1px;
+  border-bottom: #e3e3e3 solid 1px;
+  padding: 20px 55px;
+}
+.help .text {
+  width: 180px;
+  float: left;
+}
+.help .text h4 {
+  height: 30px;
+  line-height: 28px;
+}
+.help .text h4 b {
+  width: 28px;
+  height: 25px;
+  float: left;
+}
+.help .text h4 span {
+  color: #333;
+  margin-left: 8px;
+  font-size: 14px;
+  font-weight: bold;
+}
+.help .text ul li {
+  height: 30px;
+  line-height: 30px;
+  margin-right: 15px;
+  float: left;
+}
+
+/* 友情链接 */
+.link {
+  width: 1190px;
+  margin: auto;
+  border-top: 1px solid #e3e3e3;
+  border-bottom: 1px solid #e3e3e3;
+}
+.link .linkname {
+  height: 30px;
+  width: 80px;
+  line-height: 30px;
+  text-align: center;
+  color: #f00;
+  float: left;
+}
+
+/* 底部 */
+.bot .shallow {
+  line-height: 25px;
+  padding-left: 5px;
+}
+.bot .bot_img {
+  padding: 5px 0px 50px 0px;
+}
+
+/* 侧边导航 */
+.fix_box {
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: #000;
+  width: 35px;
+}
+.fix_box ul {
+  overflow: hidden;
+}
+.fix_box ul li a {
+  color: #fff;
+  display: block;
+  width: 24px;
+  margin: 0 auto;
+  padding: 4px 0;
+  border-bottom: 1px solid #626161;
+}
+.fix_box ul li a i {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  line-height: 25px;
+  font-style: normal;
+}
+.fix_box ul li a .icon {
+  background: url(./../images/center/sideBar.png);
+  height: 50px;
+}
+.fix_box ul .sun a {
+  height: 41px;
+}
+.fix_box ul .sun a .fbox_one {
+  background-position: -1px 0px;
+  height: 45px;
+  background-size: 115%;
+}
+.fix_box ul li a .iCarts {
+  font-size: 14px;
+  background-position: -4px -236px;
+  writing-mode: tb-rl;
+}
+.fix_box ul li a .iwechat {
+  background-position: -5px -38px;
+  height: 50px;
+  background-size: 134%;
+}
+.fix_box ul li a .iweibo {
+  background-position: -4px -84px;
+  height: 50px;
+}
+.backtop {
+  position: absolute;
+  height: 45px;
+  width: 35px;
+  bottom: 0px;
+}
+.backtop .arrow {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 45px;
+  background: url(./../images/quick_bar.jpg) no-repeat 0 -556px;
+}

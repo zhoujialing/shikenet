@@ -1,0 +1,241 @@
+/* 登录注册栏 */
+.shortcut {
+  height: 30px;
+  color: #999;
+  font-size: 12px;
+  background-color: #f2f2f2;
+}
+.shortcut .sc_wrap {
+  height: 16px;
+  width: 1190px;
+  padding-top: 5px;
+  margin: auto;
+}
+.shortcut .sc_wrap a {
+  color: #999;
+}
+/* 左边 */
+.shortcut .sc_wrap .sc_left li {
+  float: left;
+}
+.shortcut .sc_wrap .sc_left li span {
+  margin: 0px 7px;
+}
+.shortcut .sc_wrap .sc_left .logon,
+.register {
+  margin-right: 10px;
+}
+
+/* 右边 */
+.shortcut .sc_wrap .sc_right li {
+  margin-left: 15px;
+  float: left;
+  padding: 0px 5px;
+}
+.shortcut .sc_wrap .sc_right li:nth-child(5) img {
+  width: 24px;
+  height: 24px;
+  margin-top: -3px;
+  margin-right: 2px;
+}
+
+/* 搜索 */
+.process {
+  margin-top: 30px;
+  height: 50px;
+  width: 314px;
+  float: right;
+}
+.process .dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background-color: #863177;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+.process .line {
+  width: 100px;
+  height: 2px;
+  margin: 0px 10px;
+  display: inline-block;
+  background-color: #e4e4e4;
+  border-radius: 5px;
+  position: relative;
+  top: -5px;
+}
+.logo .search {
+  width: 710px;
+  float: right;
+  margin: 20px 0px;
+  padding-top: 30px;
+  padding-left: 60px;
+  box-sizing: border-box;
+}
+.logo .search .search_box {
+  width: 650px;
+  background-color: #c40000;
+  margin-bottom: 5px;
+  height: 40px;
+}
+.logo .search .search_box input {
+  width: 510px;
+  margin: 2px 0 0 2px;
+  height: 29px;
+  line-height: 29px;
+  font-size: 14px;
+  color: #999;
+  border-top: 1px solid #c2c0c0;
+  border-left: 1px solid #cad7ed;
+  padding: 4px 0px 0px 6px;
+}
+.logo .search .search_box button{
+    height: 40px;
+    width: 125px;
+    background-color: #c40000;
+    color: #fff;
+    font-weight: bold;
+    border: 0;
+    letter-spacing: 3px;
+    font-size: 18px;
+    line-height: 40px;
+}
+.nav_choose {
+  width: 1190px;
+  border-bottom: 2px solid #f2f2f2;
+  padding: 10px 10px 0px 0px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+.nav_choose li {
+  float: left;
+  padding: 10px 20px;
+}
+.cartlist .cartTitle li{
+  float: left;
+  height: 25px;
+  line-height: 25px;
+  color: #333;
+}
+.cartlist .list{
+  background-color: #fcfcfc;
+  margin: 10px 0px;
+  padding: 20px 0px;
+  box-sizing: border-box;
+  border:1px solid #f2f2f2;
+}
+.cartlist .list li{
+  height: 78px;
+  float: left;
+}
+.cartlist .list p{
+  margin-bottom: 8px;
+}
+.cartlist .list span{
+  color: #666;
+}
+.cartlist .list input{
+  text-align: center;
+}
+.cartlist .list li:nth-child(1){
+  padding-left: 30px;
+  box-sizing: border-box;
+}
+.cartlist ul li:nth-child(1){
+  width: 120px;
+}
+.cartlist ul li:nth-child(2){
+  width: 350px;
+}
+.cartlist ul li:nth-child(3){
+  width: 150px;
+  text-align: left;
+}
+.cartlist ul li:nth-child(4){
+  width: 200px;
+  text-align: center;
+
+}
+.cartlist ul li:nth-child(5){
+  width: 180px;
+  text-align: center;
+
+}
+.cartlist ul li:nth-child(6){
+  width: 180px;
+  text-align: center;
+
+}
+.cartlist ul li input{
+  width: 30px;
+}
+.cartlist ul li button{
+  width: 20px;
+}
+
+.totalEnd{
+  border:1px solid #f2f2f2;
+  background-color: #fcfcfc;
+}
+.zysx{
+  width: 1060px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.zysx img{
+  margin-left: 40px;
+  margin-right: 20px;
+}
+.zysx span{
+  color: #E02f06;
+  font-size: 14px;
+}
+.totalEnd .zysx #tPrice{
+ position: absolute;
+ right: 20px;
+}
+.totalEnd .zysx #tPrice span{
+  font-size: 22px;
+  color: #E02f06;
+}
+.totalEnd .cartBotton{
+  width: 128px;
+  height: 70px;
+  background-color: #E02f06;
+  border: 0;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold
+}
+
+.car_empty{
+    padding: 40px;
+}
+.car_empty img{
+    width: 50px;
+    position: relative;
+    top: 8px;
+    float: left;
+    margin-right: 10px;
+}
+.car_empty h2{
+    line-height: 35px;
+}
+.car_empty a{
+    color: #169bd5;
+    font-size: 14px;
+}
+.car_empty p{
+    font-size: 14px;
+    line-height: 22px;
+}
+
+
+.fo_center{
+    color: #666;
+    text-align: center;
+}

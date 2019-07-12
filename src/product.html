@@ -1,0 +1,1822 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/product.css">
+    <link rel="stylesheet" href="./css/footer.css">
+    <script src="./js/jquery.js"></script>
+    <script src="./js/product.js"></script>
+    <script src="./js/layer/layer.js"></script>
+</head>
+<script>
+    $(function () {
+        $(window).on("load", function () {
+
+            var oUser = document.getElementById("user");
+
+            $(".noLogin").show()
+            $(".isLogin").hide()
+            $.ajax({
+                url: "./../server/islogin.php",
+                dataType: "json"
+            }).then(function (res) {
+                if (res.status == false) {
+                    //没登录
+                    $(".noLogin").show()
+                    $(".isLogin").hide()
+
+                    window.location = "./register.html";
+                } else {
+                    //已经登录
+                    $(".noLogin").hide()
+                    $(".isLogin").show()
+                    let userData = JSON.parse(localStorage.getItem("user"));
+                    oUser.innerText = userData.u_name;
+                }
+            })
+            $(".quit").on("click", function () {
+                $.ajax({
+                    url: "./../server/exitlogin.php"
+                }).then(function () {
+                    window.location = "./register.html";
+                })
+
+            })
+
+        })
+    })
+
+</script>
+</script>
+
+<body>
+    <!-- 登录注册栏 -->
+    <div class="shortcut">
+        <div class="sc_wrap">
+            <ul class="sc_left fl">
+                <li>收藏视客眼镜网</li>
+                <li><span>|</span></li>
+                <li class="noLogin">
+                    <p class="register fl">
+                        <a href="">登录</a>
+                    </p>
+                    <p class="logon fl">
+                        <a href="">注册</a>
+                    </p>
+                </li>
+                <li class="isLogin">
+                    <div class="box">欢迎:
+                        <span id="user"></span>
+                        <a href="javascript:void(0)" class="quit">退出登录</a></span></div>
+                </li>
+            </ul>
+            <ul class="sc_right fr">
+                <li>我的视客</li>
+                <li>我的订单</li>
+                <li>帮助中心</li>
+                <li>|</li>
+                <li>
+                    <a href="">
+                        <img src="./images/header/maincart.png" alt="">
+                    </a>
+                </li>
+                <li style="margin-left: 3px">
+                    <a id="splink" href="./shopping.html"> 购物车</a>
+                </li>
+                <li>
+                    <img src="./images/header/phone.png" alt="">
+                </li>
+                <li style="margin-left: 3px" class="sc_ewm">
+                    <a href="JavaScript:;;"> 手机版
+                        <div class="top_ewm">
+                            <img src="./images/header/pic2wei.jpg" alt="">
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <img src="./images/header/Customer.png" alt="">
+                </li>
+                <li style="margin-left: 3px">在线客服</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 顶部轮播 -->
+    <div class="ad_banner">
+        <div class="h_img">
+            <img src="./images/header/ad_banner.jpg" alt="">
+        </div>
+    </div>
+
+    <!-- 头部搜索 -->
+    <div class="hearder">
+        <img src="./images/header/logo_new.jpg" alt="">
+        <div class="search">
+            <div class="s_input">
+                <input type="text" placeholder="硅水凝胶">
+                <button>搜索</button>
+            </div>
+            <ul>
+                <li>清氧清</li>
+                <li>博士伦</li>
+                <li>强生舒日</li>
+                <li>舒视氧</li>
+                <li style="color:#d03805">美若康</li>
+                <li>茵洛Clalen</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 头部导航 -->
+    <div class="menu_b">
+        <div class="menu">
+            <div class="short_list">
+                <h2>所有商品分类</h2>
+                <div class="alllist">
+                        <div class="navlist">
+                            <h3 class="">
+                                <div class="navlist1"></div>
+                                <div>
+                                    <span>隐形眼镜</span><br>
+                                    <span>博士伦</span>
+                                    <span>库博</span>
+                                    <span>硅水凝胶</span>
+                                </div>
+                            </h3>
+                            <div class="navMore">
+                                <div class="xilie">
+                                    <dl>
+                                        <dt>
+                                            热销品牌
+                                        </dt>
+                                        <dd>
+                                            <a href="Javascript:;;">博士伦</a>
+                                            <a href="Javascript:;;">强生</a>
+                                            <a href="Javascript:;;">爱尔康视康</a>
+                                            <a href="Javascript:;;">库博</a>
+                                            <a href="Javascript:;;">海昌</a>
+                                            <a href="Javascript:;;">美若康</a>
+                                            <a href="Javascript:;;">clalen</a>
+                                            <a href="Javascript:;;">miru米如</a>
+                                            <a href="Javascript:;;">科莱博</a>
+                                            <a href="Javascript:;;">菲士康</a>
+                                            <a href="Javascript:;;">蔡司</a>
+                                            <a href="Javascript:;;">卫康</a>
+                                            <a href="Javascript:;;">更多品牌 >> </a>
+                                        </dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>
+                                            人气系列
+                                        </dt>
+                                        <dd>
+                                            <a href="Javascript:;;">博士伦|清朗</a>
+                                            <a href="Javascript:;;">库博|宝润清</a>
+                                            <a href="Javascript:;;">强生|舒日</a>
+                                            <a href="Javascript:;;">视康|舒适氧</a>
+                                            <a href="Javascript:;;">库博|莫视明</a>
+                                            <a href="Javascript:;;">美若康|沐氧</a>
+                                            <a href="Javascript:;;">茵洛|clalen</a>
+                                            <a href="Javascript:;;">视康|日夜型</a>
+                                            <a href="Javascript:;;">海昌|EASY DAY</a>
+                                        </dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>
+                                            抛弃周期
+                                        </dt>
+                                        <dd>
+                                            <a href="Javascript:;;">日抛</a>
+                                            <a href="Javascript:;;">双周抛</a>
+                                            <a href="Javascript:;;">月抛</a>
+                                            <a href="Javascript:;;">半年抛</a>
+                                            <a href="Javascript:;;">年抛</a>
+    
+                                        </dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>
+                                            佩戴场合
+                                        </dt>
+                                        <dd>
+                                            <a href="Javascript:;;">外出游玩(方便卫生)</a>
+                                            <a href="Javascript:;;">商务职场(舒适自在)</a>
+                                            <a href="Javascript:;;">青春校园(经济适用)</a>
+                                            <a href="Javascript:;;">逛街聚会(安心长戴)</a>
+    
+                                        </dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>
+                                            镜片特点
+                                        </dt>
+                                        <dd>
+                                            <a href="Javascript:;;">高透氧(硅水凝胶)</a>
+                                            <a href="Javascript:;;">散光、远视、高度近视</a>
+                                            <a href="Javascript:;;">青春校园(经济适用)</a>
+                                            <a href="Javascript:;;">逛街聚会(安心长戴)</a>
+    
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="navlist">
+                            <h3>
+                                <div class="navlist2"></div>
+                                <div>
+                                    <span>彩色隐形眼镜</span><br>
+                                    <span>强生美瞳</span>
+                                    <span>博士伦</span>
+                                    <span>实瞳</span>
+                                </div>
+                            </h3>
+                            <div class="navMore">
+                                <div class="xilie">
+                                    <dl>
+                                        <dt>
+                                            热销品牌
+                                        </dt>
+                                        <dd>
+                                            <a href="Javascript:;;">博士伦</a>
+                                            <a href="Javascript:;;">强生</a>
+                                            <a href="Javascript:;;">爱尔康视康</a>
+                                            <a href="Javascript:;;">库博</a>
+                                            <a href="Javascript:;;">海昌</a>
+                                            <a href="Javascript:;;">美若康</a>
+                                            <a href="Javascript:;;">clalen</a>
+                                            <a href="Javascript:;;">miru米如</a>
+                                            <a href="Javascript:;;">科莱博</a>
+                                            <a href="Javascript:;;">菲士康</a>
+                                            <a href="Javascript:;;">蔡司</a>
+                                            <a href="Javascript:;;">卫康</a>
+                                            <a href="Javascript:;;">更多品牌 >> </a>
+                                        </dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>
+                                            人气系列
+                                        </dt>
+                                        <dd>
+                                            <a href="Javascript:;;">博士伦|清朗</a>
+                                            <a href="Javascript:;;">库博|宝润清</a>
+                                            <a href="Javascript:;;">强生|舒日</a>
+                                            <a href="Javascript:;;">视康|舒适氧</a>
+                                            <a href="Javascript:;;">库博|莫视明</a>
+                                            <a href="Javascript:;;">美若康|沐氧</a>
+                                            <a href="Javascript:;;">茵洛|clalen</a>
+                                            <a href="Javascript:;;">视康|日夜型</a>
+                                            <a href="Javascript:;;">海昌|EASY DAY</a>
+                                        </dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>
+                                            抛弃周期
+                                        </dt>
+                                        <dd>
+                                            <a href="Javascript:;;">日抛</a>
+                                            <a href="Javascript:;;">双周抛</a>
+                                            <a href="Javascript:;;">月抛</a>
+                                            <a href="Javascript:;;">半年抛</a>
+                                            <a href="Javascript:;;">年抛</a>
+    
+                                        </dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>
+                                            畅销花色
+                                        </dt>
+                                        <dd>
+                                            <a href="Javascript:;;">蕾丝</a>
+                                            <a href="Javascript:;;">钻石</a>
+                                            <a href="Javascript:;;">巨目</a>
+                                            <a href="Javascript:;;">梦幻</a>
+                                            <a href="Javascript:;;">双色</a>
+                                            <a href="Javascript:;;">三色</a>
+    
+                                        </dd>
+                                    </dl>
+    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="navlist">
+                            <h3>
+                                <div class="navlist3"></div>
+                                <div>
+                                    <span>护理用品</span><br>
+                                    <span>护理液</span>
+                                    <span>润眼液</span>
+                                    <span>硬镜护理</span>
+                                </div>
+                            </h3>
+                            <div class="navMore">
+                                <div class="xilie">
+    
+                                    <dl>
+                                        <dt>
+                                            人气系列
+                                        </dt>
+                                        <dd>
+                                            <a href="Javascript:;;">博士伦|清朗</a>
+                                            <a href="Javascript:;;">库博|宝润清</a>
+                                            <a href="Javascript:;;">强生|舒日</a>
+                                            <a href="Javascript:;;">视康|舒适氧</a>
+                                            <a href="Javascript:;;">库博|莫视明</a>
+                                            <a href="Javascript:;;">美若康|沐氧</a>
+                                            <a href="Javascript:;;">茵洛|clalen</a>
+                                            <a href="Javascript:;;">视康|日夜型</a>
+                                            <a href="Javascript:;;">海昌|EASY DAY</a>
+                                            <a href="Javascript:;;">视康|日夜型</a>
+                                            <a href="Javascript:;;">更多品牌 >> </a>
+                                        </dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>
+                                            润眼液
+                                        </dt>
+                                        <dd>
+                                            <a href="Javascript:;;">博士伦</a>
+                                            <a href="Javascript:;;">强生</a>
+                                            <a href="Javascript:;;">爱尔康视康</a>
+                                            <a href="Javascript:;;">库博</a>
+    
+                                        </dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>
+                                            人气系列
+                                        </dt>
+                                        <dd>
+                                            <a href="Javascript:;;">博士伦|清朗</a>
+                                            <a href="Javascript:;;">库博|宝润清</a>
+                                            <a href="Javascript:;;">强生|舒日</a>
+                                            <a href="Javascript:;;">视康|舒适氧</a>
+    
+                                        </dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>
+                                            伴侣盒
+                                        </dt>
+                                        <dd>
+                                            <a href="Javascript:;;">Holy nara</a>
+                                            <a href="Javascript:;;">凯达/好品质</a>
+    
+    
+                                        </dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>
+                                            人气搜索
+                                        </dt>
+                                        <dd>
+                                            <a href="Javascript:;;">促销装</a>
+                                            <a href="Javascript:;;">原装进口</a>
+                                            <a href="Javascript:;;">水润保湿</a>
+                                            <a href="Javascript:;;">不含防腐剂</a>
+                                            <a href="Javascript:;;">框架镜清洗液</a>
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="navlist">
+                            <h3>
+                                <div class="navlist4"></div>
+                                <div>
+                                    <span>太阳眼镜</span><br>
+                                    <span>雷朋</span>
+                                    <span>朵米娜</span>
+                                    <span>偏光太阳镜</span>
+                                </div>
+                            </h3>
+                            <div class="navMore">
+                                <div class="xilie">
+                                    <dl>
+                                        <dt>
+                                            热销品牌
+                                        </dt>
+                                        <dd>
+                                            <a href="Javascript:;;">博士伦</a>
+                                            <a href="Javascript:;;">强生</a>
+                                            <a href="Javascript:;;">爱尔康视康</a>
+                                            <a href="Javascript:;;">库博</a>
+                                            <a href="Javascript:;;">海昌</a>
+                                            <a href="Javascript:;;">美若康</a>
+    
+                                        </dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>
+                                            人气系列
+                                        </dt>
+                                        <dd>
+                                            <a href="Javascript:;;">博士伦/清朗</a>
+                                            <a href="Javascript:;;">库博/宝润清</a>
+                                            <a href="Javascript:;;">强生/舒日</a>
+                                            <a href="Javascript:;;">视康/舒适氧</a>
+                                            <a href="Javascript:;;">库博/莫视明</a>
+    
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="navlist">
+                            <h3>
+                                <div class="navlist5"></div>
+                                <div>
+                                    <span>功能眼镜</span><br>
+                                    <span>游泳镜</span>
+                                    <span>篮球镜</span>
+                                    <span>老花镜</span>
+                                </div>
+                            </h3>
+                            <div class="navMore">
+                                <div class="xilie">
+                                    <dl>
+                                        <dt>
+                                            热销品牌
+                                        </dt>
+                                        <dd>
+                                            <a href="Javascript:;;">博士伦</a>
+                                            <a href="Javascript:;;">强生</a>
+                                            <a href="Javascript:;;">爱尔康视康</a>
+                                            <a href="Javascript:;;">库博</a>
+                                            <a href="Javascript:;;">海昌</a>
+                                            <a href="Javascript:;;">美若康</a>
+    
+                                        </dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>
+                                            人气系列
+                                        </dt>
+                                        <dd>
+                                            <a href="Javascript:;;">博士伦/清朗</a>
+                                            <a href="Javascript:;;">库博/宝润清</a>
+                                            <a href="Javascript:;;">强生/舒日</a>
+                                            <a href="Javascript:;;">视康/舒适氧</a>
+                                            <a href="Javascript:;;">库博/莫视明</a>
+    
+                                        </dd>
+                                    </dl>
+    
+    
+    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <ul>
+                <li>首页</li>
+                <li>海淘
+                    <i style="font-size:12px;position:relative;top:-7px;font-weight:400;left:-2px;">new</i>
+                </li>
+                <li>i秒杀/今日值得购买</li>
+                <li>隐形眼镜</li>
+                <li>硅水凝胶</li>
+                <li>美瞳</li>
+                <li>镜片护理</li>
+                <li>眼镜学堂</li>
+                <li>金币商城</li>
+            </ul>
+        </div>
+    </div>
+
+    <!---------------------头部结束------------------------->
+    <div class="pro_center">
+        <div class="w headpo">
+            <b></b>当前位置:
+            <span>视客眼镜网</span>>
+            <span>隐形眼镜</span>>
+            <span>库博</span>>
+            <span>库博宝睛润非球面日抛隐形眼镜30片装</span>
+        </div>
+        <div class="w banner">
+            <div class="banner_l">
+                <div id="content">
+                    <div id="small_img1">
+                        <div id="smallImg">
+                            <div id="smallArea"></div>
+
+                        </div>
+                        <div id="bigArea">
+                            <div id="bigImg">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="lit_img" style="margin-top: 8px">
+                        <ul>
+                            
+                        </ul>
+                    </div>
+                </div>
+                <div class="banner_lb">
+                    <span>收藏商品</span>
+                </div>
+            </div>
+            <div class="banner_c clear">
+                <div class="cuXiao">
+                    <div class="name">
+                        <h1>库博宝睛润非球面日抛隐形眼镜30片装</h1>
+                        <strong>【4盒返50元无门槛券2张】PC仿生材质，锁水24H，体验更舒适。</strong>
+                    </div>
+                    <div class="miaoSha">
+                        <span>
+                            <b>¥</b>
+                            <em class="price">87</em>
+                        </span>
+                        <p style="height: 80px;">
+                            <b style="color: #fff">¥159</b>
+                            <i>秒杀
+                                <img src="./images/product/secKill_icon.png" alt="">
+                            </i>
+                        </p>
+                    </div>
+                    <div class="zeng">
+                        <div class="dd">
+                            <span>赠</span>
+                            <span>库博满199赠蒸汽眼罩（限赠1次）</span>
+                        </div>
+                        <div class="ss">
+                            <span>
+                                <img src="./images/product/ss.jpg" alt="">
+                                &nbsp× 1
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <ul class="clear">
+                    <li>品牌:
+                        <span class="brand">库博</span>
+                    </li>
+                    <li>
+                        商品编号:
+                        <span class="pid"></span>
+                    </li>
+                    <li>
+                        <span>2261</span>
+                        <span>评论</span>
+                        <b>|</b>
+                        <span>98%</span>
+                        <span>好评</span>
+
+                    </li>
+                </ul>
+                <p>亲，如果初次佩戴隐形眼镜，建议先去医院进行检查，按医生指导佩戴。</p>
+                <div class="choose">
+                    <div class="cho_sel clear">
+                        <ul>
+                            <li>
+                                <span>左眼(L)</span>
+                                <select class="l_degree" id="ldegree">
+                                    <option value="">请选择</option>
+                                    <option value="-1.01">-1.01</option>
+                                    <option value="-2.02">-2.02</option>
+                                    <option value="-3.03">-3.03</option>
+                                    <option value="-4.04">-4.04</option>
+                                    <option value="-5.05">-5.05</option>
+                                    <option value="-6.06">-6.06</option>
+                                    <option value="-7.07">-7.07</option>
+                                    <option value="-8.08">-8.08</option>
+                                    <option value="-9.09">-9.09</option>
+                                    <option value="-10.10">-10.10</option>
+                                </select>
+                                <select class="l_num" id="leyes_num">
+                                    <option value="">数量</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>
+                                <span style="color: #dd2727 ">限购：8件/人</span>
+                            </li>
+                            <li>
+                                <span>右眼(R)</span>
+                                <select class="l_degree" id="rdegree">
+                                    <option value="">请选择</option>
+                                    <option value="-1.01">-1.01</option>
+                                    <option value="-2.02">-2.02</option>
+                                    <option value="-3.03">-3.03</option>
+                                    <option value="-4.04">-4.04</option>
+                                    <option value="-5.05">-5.05</option>
+                                    <option value="-6.06">-6.06</option>
+                                    <option value="-7.07">-7.07</option>
+                                    <option value="-8.08">-8.08</option>
+                                    <option value="-9.09">-9.09</option>
+                                    <option value="-10.10">-10.10</option>
+                                </select>
+                                <select class="l_num" id="reyes_num">
+                                    <option value="">数量</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>
+                                <span style="color: #005aa0">计价单位说明&nbsp&nbsp&nbsp不知道如何选度数?
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="buy_btn">
+                    <input type="button" value="立即购买" class="choose_btn"
+                        style="color: #e02f26;background: none;border: 1px solid #e02f26">
+                    <input type="button" value="加入购物车" class="choose_btn" id="addCart">
+                </div>
+                <div class="service">
+                    <span>100%正品保障</span>
+                    <span>满60全国包邮</span>
+                    <span>30天无理由免费退换货</span>
+                </div>
+            </div>
+            <div class="banner_r">
+                <img src="./images/product/Appdowmload.gif" alt="">
+                <span>App扫购,方便快捷
+
+                </span>
+            </div>
+        </div>
+        <div class="w colloc">
+            <div class="colloc_tittle">
+                <ul>
+                    <li>
+                        <a href="Javascript:;;">省心配</a>
+                    </li>
+                    <li>
+                        <a href="Javascript:;;">同品牌</a>
+                    </li>
+                    <li>
+                        <a href="Javascript:;;">同价位</a>
+                    </li>
+                    <li>
+                        <a href="Javascript:;;">同类别</a>
+                    </li>
+                    <li>
+                        <a href="Javascript:;;">同周期</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="colloc_list">
+                <div class="colloc_cont selected">
+                    <ul>
+                        <li>
+                            <div class="pic_wrap">
+                                <a href="JavaScript:;;">
+                                    <img src="./images/product/cent1.2.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="tit_wrap">
+                                <a href="">博士伦蕾丝明眸日抛彩色隐形眼镜30片装</a><br>
+                                <span style="color: #cc0000">【2盒券后105/盒】自然深邃 柔和大眼 绽放无限美丽</span>
+                            </div>
+                            <div class="price_wrap">
+                                <span>¥198</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="pic_wrap">
+                                <a href="JavaScript:;;">
+                                    <img src="./images/product/cent1.3.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="tit_wrap">
+                                <a href="">博士伦蕾丝明眸日抛彩色隐形眼镜30片装</a><br>
+                                <span style="color: #cc0000">【2盒券后105/盒】自然深邃 柔和大眼 绽放无限美丽</span>
+                            </div>
+                            <div class="price_wrap">
+                                <span>¥198</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="pic_wrap">
+                                <a href="JavaScript:;;">
+                                    <img src="./images/product/cent1.4.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="tit_wrap">
+                                <a href="">博士伦蕾丝明眸日抛彩色隐形眼镜30片装</a><br>
+                                <span style="color: #cc0000">【2盒券后105/盒】自然深邃 柔和大眼 绽放无限美丽</span>
+                            </div>
+                            <div class="price_wrap">
+                                <span>¥198</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="pic_wrap">
+                                <a href="JavaScript:;;">
+                                    <img src="./images/product/cent1.5.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="tit_wrap">
+                                <a href="">博士伦蕾丝明眸日抛彩色隐形眼镜30片装</a><br>
+                                <span style="color: #cc0000">【2盒券后105/盒】自然深邃 柔和大眼 绽放无限美丽</span>
+                            </div>
+                            <div class="price_wrap">
+                                <span>¥198</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="pic_wrap">
+                                <a href="JavaScript:;;">
+                                    <img src="./images/product/cent1.6.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="tit_wrap">
+                                <a href="">博士伦蕾丝明眸日抛彩色隐形眼镜30片装</a><br>
+                                <span style="color: #cc0000">【2盒券后105/盒】自然深邃 柔和大眼 绽放无限美丽</span>
+                            </div>
+                            <div class="price_wrap">
+                                <span>¥198</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="pic_wrap">
+                                <a href="JavaScript:;;">
+                                    <img src="./images/product/cent1.7.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="tit_wrap">
+                                <a href="">博士伦蕾丝明眸日抛彩色隐形眼镜30片装</a><br>
+                                <span style="color: #cc0000">【2盒券后105/盒】自然深邃 柔和大眼 绽放无限美丽</span>
+                            </div>
+                            <div class="price_wrap">
+                                <span>¥198</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="colloc_cont">
+                    <ul>
+                        <li>
+                            <div class="pic_wrap">
+                                <a href="JavaScript:;;">
+                                    <img src="./images/product/collo1.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="tit_wrap">
+                                <a href="">博士伦蕾丝明眸日抛彩色隐形眼镜30片装</a><br>
+                                <span style="color: #cc0000">【2盒券后105/盒】自然深邃 柔和大眼 绽放无限美丽</span>
+                            </div>
+                            <div class="price_wrap">
+                                <span>¥198</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="pic_wrap">
+                                <a href="JavaScript:;;">
+                                    <img src="./images/product/collo2.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="tit_wrap">
+                                <a href="">博士伦蕾丝明眸日抛彩色隐形眼镜30片装</a><br>
+                                <span style="color: #cc0000">【2盒券后105/盒】自然深邃 柔和大眼 绽放无限美丽</span>
+                            </div>
+                            <div class="price_wrap">
+                                <span>¥198</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="pic_wrap">
+                                <a href="JavaScript:;;">
+                                    <img src="./images/product/collo3.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="tit_wrap">
+                                <a href="">博士伦蕾丝明眸日抛彩色隐形眼镜30片装</a><br>
+                                <span style="color: #cc0000">【2盒券后105/盒】自然深邃 柔和大眼 绽放无限美丽</span>
+                            </div>
+                            <div class="price_wrap">
+                                <span>¥198</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="pic_wrap">
+                                <a href="JavaScript:;;">
+                                    <img src="./images/product/collo4.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="tit_wrap">
+                                <a href="">博士伦蕾丝明眸日抛彩色隐形眼镜30片装</a><br>
+                                <span style="color: #cc0000">【2盒券后105/盒】自然深邃 柔和大眼 绽放无限美丽</span>
+                            </div>
+                            <div class="price_wrap">
+                                <span>¥198</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="pic_wrap">
+                                <a href="JavaScript:;;">
+                                    <img src="./images/product/collo5.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="tit_wrap">
+                                <a href="">博士伦蕾丝明眸日抛彩色隐形眼镜30片装</a><br>
+                                <span style="color: #cc0000">【2盒券后105/盒】自然深邃 柔和大眼 绽放无限美丽</span>
+                            </div>
+                            <div class="price_wrap">
+                                <span>¥198</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="pic_wrap">
+                                <a href="JavaScript:;;">
+                                    <img src="./images/product/collo6.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="tit_wrap">
+                                <a href="">博士伦蕾丝明眸日抛彩色隐形眼镜30片装</a><br>
+                                <span style="color: #cc0000">【2盒券后105/盒】自然深邃 柔和大眼 绽放无限美丽</span>
+                            </div>
+                            <div class="price_wrap">
+                                <span>¥198</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="colloc_cont">
+                    <ul>
+                        <li>
+                            <div class="pic_wrap">
+                                <a href="JavaScript:;;">
+                                    <img src="./images/product/cent1.8.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="tit_wrap">
+                                <a href="">博士伦蕾丝明眸日抛彩色隐形眼镜30片装</a><br>
+                                <span style="color: #cc0000">【2盒券后105/盒】自然深邃 柔和大眼 绽放无限美丽</span>
+                            </div>
+                            <div class="price_wrap">
+                                <span>¥198</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="pic_wrap">
+                                <a href="JavaScript:;;">
+                                    <img src="./images/product/cent1.9.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="tit_wrap">
+                                <a href="">博士伦蕾丝明眸日抛彩色隐形眼镜30片装</a><br>
+                                <span style="color: #cc0000">【2盒券后105/盒】自然深邃 柔和大眼 绽放无限美丽</span>
+                            </div>
+                            <div class="price_wrap">
+                                <span>¥198</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="pic_wrap">
+                                <a href="JavaScript:;;">
+                                    <img src="./images/product/cent2.0.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="tit_wrap">
+                                <a href="">博士伦蕾丝明眸日抛彩色隐形眼镜30片装</a><br>
+                                <span style="color: #cc0000">【2盒券后105/盒】自然深邃 柔和大眼 绽放无限美丽</span>
+                            </div>
+                            <div class="price_wrap">
+                                <span>¥198</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="pic_wrap">
+                                <a href="JavaScript:;;">
+                                    <img src="./images/product/cent2.1.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="tit_wrap">
+                                <a href="">博士伦蕾丝明眸日抛彩色隐形眼镜30片装</a><br>
+                                <span style="color: #cc0000">【2盒券后105/盒】自然深邃 柔和大眼 绽放无限美丽</span>
+                            </div>
+                            <div class="price_wrap">
+                                <span>¥198</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="pic_wrap">
+                                <a href="JavaScript:;;">
+                                    <img src="./images/product/cent1.9.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="tit_wrap">
+                                <a href="">博士伦蕾丝明眸日抛彩色隐形眼镜30片装</a><br>
+                                <span style="color: #cc0000">【2盒券后105/盒】自然深邃 柔和大眼 绽放无限美丽</span>
+                            </div>
+                            <div class="price_wrap">
+                                <span>¥198</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="pic_wrap">
+                                <a href="JavaScript:;;">
+                                    <img src="./images/product/cent1.4.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="tit_wrap">
+                                <a href="">博士伦蕾丝明眸日抛彩色隐形眼镜30片装</a><br>
+                                <span style="color: #cc0000">【2盒券后105/盒】自然深邃 柔和大眼 绽放无限美丽</span>
+                            </div>
+                            <div class="price_wrap">
+                                <span>¥198</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="colloc_cont">
+                    <ul>
+                        <li>
+                            <div class="pic_wrap">
+                                <a href="JavaScript:;;">
+                                    <img src="./images/product/collo1.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="tit_wrap">
+                                <a href="">博士伦蕾丝明眸日抛彩色隐形眼镜30片装</a><br>
+                                <span style="color: #cc0000">【2盒券后105/盒】自然深邃 柔和大眼 绽放无限美丽</span>
+                            </div>
+                            <div class="price_wrap">
+                                <span>¥198</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="pic_wrap">
+                                <a href="JavaScript:;;">
+                                    <img src="./images/product/collo2.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="tit_wrap">
+                                <a href="">博士伦蕾丝明眸日抛彩色隐形眼镜30片装</a><br>
+                                <span style="color: #cc0000">【2盒券后105/盒】自然深邃 柔和大眼 绽放无限美丽</span>
+                            </div>
+                            <div class="price_wrap">
+                                <span>¥198</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="pic_wrap">
+                                <a href="JavaScript:;;">
+                                    <img src="./images/product/collo3.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="tit_wrap">
+                                <a href="">博士伦蕾丝明眸日抛彩色隐形眼镜30片装</a><br>
+                                <span style="color: #cc0000">【2盒券后105/盒】自然深邃 柔和大眼 绽放无限美丽</span>
+                            </div>
+                            <div class="price_wrap">
+                                <span>¥198</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="pic_wrap">
+                                <a href="JavaScript:;;">
+                                    <img src="./images/product/collo4.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="tit_wrap">
+                                <a href="">博士伦蕾丝明眸日抛彩色隐形眼镜30片装</a><br>
+                                <span style="color: #cc0000">【2盒券后105/盒】自然深邃 柔和大眼 绽放无限美丽</span>
+                            </div>
+                            <div class="price_wrap">
+                                <span>¥198</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="pic_wrap">
+                                <a href="JavaScript:;;">
+                                    <img src="./images/product/collo5.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="tit_wrap">
+                                <a href="">博士伦蕾丝明眸日抛彩色隐形眼镜30片装</a><br>
+                                <span style="color: #cc0000">【2盒券后105/盒】自然深邃 柔和大眼 绽放无限美丽</span>
+                            </div>
+                            <div class="price_wrap">
+                                <span>¥198</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="pic_wrap">
+                                <a href="JavaScript:;;">
+                                    <img src="./images/product/collo6.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="tit_wrap">
+                                <a href="">博士伦蕾丝明眸日抛彩色隐形眼镜30片装</a><br>
+                                <span style="color: #cc0000">【2盒券后105/盒】自然深邃 柔和大眼 绽放无限美丽</span>
+                            </div>
+                            <div class="price_wrap">
+                                <span>¥198</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="colloc_cont">
+                    <ul>
+                        <li>
+                            <div class="pic_wrap">
+                                <a href="JavaScript:;;">
+                                    <img src="./images/center/cent2.4.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="tit_wrap">
+                                <a href="">博士伦蕾丝明眸日抛彩色隐形眼镜30片装</a><br>
+                                <span style="color: #cc0000">【2盒券后105/盒】自然深邃 柔和大眼 绽放无限美丽</span>
+                            </div>
+                            <div class="price_wrap">
+                                <span>¥198</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="pic_wrap">
+                                <a href="JavaScript:;;">
+                                    <img src="./images/center/cent2.5.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="tit_wrap">
+                                <a href="">博士伦蕾丝明眸日抛彩色隐形眼镜30片装</a><br>
+                                <span style="color: #cc0000">【2盒券后105/盒】自然深邃 柔和大眼 绽放无限美丽</span>
+                            </div>
+                            <div class="price_wrap">
+                                <span>¥198</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="pic_wrap">
+                                <a href="JavaScript:;;">
+                                    <img src="./images/center/cent2.6.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="tit_wrap">
+                                <a href="">博士伦蕾丝明眸日抛彩色隐形眼镜30片装</a><br>
+                                <span style="color: #cc0000">【2盒券后105/盒】自然深邃 柔和大眼 绽放无限美丽</span>
+                            </div>
+                            <div class="price_wrap">
+                                <span>¥198</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="pic_wrap">
+                                <a href="JavaScript:;;">
+                                    <img src="./images/center/cent2.7.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="tit_wrap">
+                                <a href="">博士伦蕾丝明眸日抛彩色隐形眼镜30片装</a><br>
+                                <span style="color: #cc0000">【2盒券后105/盒】自然深邃 柔和大眼 绽放无限美丽</span>
+                            </div>
+                            <div class="price_wrap">
+                                <span>¥198</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="pic_wrap">
+                                <a href="JavaScript:;;">
+                                    <img src="./images/center/cent2.8.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="tit_wrap">
+                                <a href="">博士伦蕾丝明眸日抛彩色隐形眼镜30片装</a><br>
+                                <span style="color: #cc0000">【2盒券后105/盒】自然深邃 柔和大眼 绽放无限美丽</span>
+                            </div>
+                            <div class="price_wrap">
+                                <span>¥198</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="pic_wrap">
+                                <a href="JavaScript:;;">
+                                    <img src="./images/center/cent2.9.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="tit_wrap">
+                                <a href="">博士伦蕾丝明眸日抛彩色隐形眼镜30片装</a><br>
+                                <span style="color: #cc0000">【2盒券后105/盒】自然深邃 柔和大眼 绽放无限美丽</span>
+                            </div>
+                            <div class="price_wrap">
+                                <span>¥198</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="w container">
+            <div class="contain_l">
+                <div class="left_tit">最近浏览过的商品</div>
+                <div class="left_con">
+                    <ul>
+                        <li>
+                            <a href="Javascript:;;">
+                                <img src="./images/product/contain.jpg" alt="">
+                            </a>
+                            <a href="Javascript:;;">
+                                <p>
+                                    库博清氧清硅水凝胶隐形
+                                </p>
+                            </a>
+                            <span>¥：88.00</span>
+                        </li>
+                        <li>
+                            <a href="Javascript:;;">
+                                <img src="./images/product/sm3.jpg" alt="">
+                            </a>
+                            <a href="Javascript:;;">
+                                <p>
+                                    库博清氧清硅水凝胶隐形
+                                </p>
+                            </a>
+                            <span>¥：68.00</span>
+                        </li>
+                        <li>
+                            <a href="Javascript:;;">
+                                <img src="./images/product/sm1.jpg" alt="">
+                            </a>
+                            <a href="Javascript:;;">
+                                <p>
+                                    库博清氧清硅水凝胶隐形
+                                </p>
+                            </a>
+                            <span>¥：78.00</span>
+                        </li>
+                        <li>
+                            <a href="Javascript:;;">
+                                <img src="./images/product/sm5.jpg">
+                            </a>
+                            <a href="Javascript:;;">
+                                <p>
+                                    库博清氧清硅水凝胶隐形
+                                </p>
+                            </a>
+                            <span>¥：88.00</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="left_tit">商品热销排行榜</div>
+                <div class="left_con">
+                    <ul>
+                        <li>
+                            <a href="Javascript:;;">
+                                <img src="./images/product/contain.jpg" alt="">
+                            </a>
+                            <a href="Javascript:;;">
+                                <p>
+                                    库博清氧清硅水凝胶隐形
+                                </p>
+                            </a>
+                            <span>¥：88.00</span>
+                        </li>
+                        <li>
+                            <a href="Javascript:;;">
+                                <img src="./images/product/sm1.1.jpg" alt="">
+                            </a>
+                            <a href="Javascript:;;">
+                                <p>
+                                    库博清氧清硅水凝胶隐形
+                                </p>
+                            </a>
+                            <span>¥：68.00</span>
+                        </li>
+                        <li>
+                            <a href="Javascript:;;">
+                                <img src="./images/product/sm1.jpg" alt="">
+                            </a>
+                            <a href="Javascript:;;">
+                                <p>
+                                    库博清氧清硅水凝胶隐形
+                                </p>
+                            </a>
+                            <span>¥：78.00</span>
+                        </li>
+                        <li>
+                            <a href="Javascript:;;">
+                                <img src="./images/product/sm5.jpg">
+                            </a>
+                            <a href="Javascript:;;">
+                                <p>
+                                    库博清氧清硅水凝胶隐形
+                                </p>
+                            </a>
+                            <span>¥：88.00</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="contain_r">
+                <div class="contain_rtit">
+                    <ul class="news_tab">
+                        <li class="active">商品详情</li>
+                        <li>资质证明</li>
+                        <li>顾客评论</li>
+                        <li>常见问题</li>
+                    </ul>
+                </div>
+                <div class="tab_body">
+                    <div style="padding: 22px 0px 10px">
+                        <table cellpadding="0" cellspacing="1">
+                            <tbody>
+                                <tr>
+                                    <td class="left">品&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;牌：</td>
+                                    <td>库博</td>
+                                    <td class="left">材&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;料：</td>
+                                    <td>omafilcon A</td>
+                                </tr>
+                                <tr>
+                                    <td class="left">产&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;地：</td>
+                                    <td>英国/美国</td>
+                                    <td class="left">含&nbsp;&nbsp;水&nbsp;&nbsp;量：</td>
+                                    <td>60%</td>
+                                </tr>
+                                <tr>
+                                    <td class="left">基&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;弧：</td>
+                                    <td>8.70mm</td>
+                                    <td class="left">直&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;径：</td>
+                                    <td>14.20</td>
+                                </tr>
+                                <tr>
+                                    <td class="left">中心厚度：</td>
+                                    <td>0.0900mm</td>
+                                    <td class="left">透痒系数：</td>
+                                    <td>37</td>
+                                </tr>
+                                <tr>
+                                    <td class="left">有&nbsp;&nbsp;效&nbsp;&nbsp;期：</td>
+                                    <td>三年以上</td>
+                                    <td class="left">商品规格：</td>
+                                    <td>盒(30片以上)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- 商品介绍 -->
+                <div class="ctn_body">
+                    <img src="./images/product/contain_r1.jpg" alt="">
+                    <img src="./images/product/contain_r2.jpg" alt="">
+                    <img src="./images/product/contain_r3.jpg" alt="">
+                    <img src="./images/product/contain_r4.jpg" alt="">
+                    <img src="./images/product/contain_r5.jpg" alt="">
+                </div>
+                <div class="pl">
+                    <div class="pl_top">
+                        <div class="rating">
+                            <span class="fl">商品评价</span>
+                            <p>(共<span style="color: #ed1c24">2263</span>条评论)</p>
+                            <div class="percent">
+                                <strong>98%</strong>
+                                <div>
+                                    <div></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="nature">
+                            <div>大家说</div>
+                            <div>
+                                <span>超舒适（26）</span>
+                                <span>水润保湿（26）</span>
+                                <span>易摘戴（26）</span>
+
+                                <span>长久配戴（26）</span>
+
+                                <span>性价比高（26）</span>
+                                <span>不易佩戴（26）</span>
+
+                            </div>
+                        </div>
+                    </div>
+                    <ul>
+                        <li>评论（2663）</li>
+                        <li>提问（1）</li>
+                    </ul>
+                </div>
+                <div id="com">
+                    <ul>
+                        <li>
+                            <input type="radio">&nbsp
+                            <label for="">
+                                全部
+                                <span>（2663）</span>
+                            </label>
+                        </li>
+                        <li>
+                            <input type="radio">&nbsp
+                            <label for="">
+                                好评
+                                <span>（2663）</span>
+                            </label>
+                        </li>
+                        <li>
+                            <input type="radio">&nbsp
+                            <label for="">
+                                中评
+                                <span>（8）</span>
+                            </label>
+                        </li>
+                        <li>
+                            <input type="radio">&nbsp
+                            <label for="">
+                                差评
+                                <span>（16）</span>
+                            </label>
+                        </li>
+                        <li>
+                            <input type="radio">&nbsp
+                            <label for="">
+                                有晒单
+                                <span>（45）</span>
+                            </label>
+                        </li>
+                    </ul>
+                    <div class="com_list">
+                        <div class="com_items">
+                            <div class="left">
+                                <div class="photo"></div>
+                                <div class="uname">***0092***</div>
+                                <div class="vip">普通会员</div>
+
+                            </div>
+                            <div class="right">
+                                <div class="topic">
+                                    <b></b>
+                                    <b></b>
+                                    <b></b>
+                                    <b></b>
+                                    <b></b>
+                                </div>
+                                <div class="com_cnt">
+                                    <dl>
+                                        <dt>缺 点：</dt>
+                                        <dd>无</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>评论内容：</dt>
+                                        <dd>囤货囤货，今年第一次开始正式戴隐形，感觉还是日抛适合自己</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>规 格：</dt>
+                                        <dd>
+                                            <span>颜色：无色</span>
+                                            <span>光度：-3.00</span>
+                                            <span>2019-06-10 17:28</span>
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </div>
+                            <div class="jt"></div>
+                        </div>
+                        <div class="com_items">
+                            <div class="left">
+                                <div class="photo"></div>
+                                <div class="uname">***0092***</div>
+                                <div class="vip">普通会员</div>
+
+                            </div>
+                            <div class="right">
+                                <div class="topic">
+                                    <b></b>
+                                    <b></b>
+                                    <b></b>
+                                    <b></b>
+                                    <b></b>
+                                </div>
+                                <div class="com_cnt">
+                                    <dl>
+                                        <dt>缺 点：</dt>
+                                        <dd>无</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>评论内容：</dt>
+                                        <dd>囤货囤货，今年第一次开始正式戴隐形，感觉还是日抛适合自己</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>规 格：</dt>
+                                        <dd>
+                                            <span>颜色：无色</span>
+                                            <span>光度：-3.00</span>
+                                            <span>2019-06-10 17:28</span>
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </div>
+                            <div class="jt"></div>
+                        </div>
+                        <div class="com_items">
+                            <div class="left">
+                                <div class="photo"></div>
+                                <div class="uname">***0092***</div>
+                                <div class="vip">普通会员</div>
+
+                            </div>
+                            <div class="right">
+                                <div class="topic">
+                                    <b></b>
+                                    <b></b>
+                                    <b></b>
+                                    <b></b>
+                                    <b></b>
+                                </div>
+                                <div class="com_cnt">
+                                    <dl>
+                                        <dt>缺 点：</dt>
+                                        <dd>无</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>评论内容：</dt>
+                                        <dd>囤货囤货，今年第一次开始正式戴隐形，感觉还是日抛适合自己</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>规 格：</dt>
+                                        <dd>
+                                            <span>颜色：无色</span>
+                                            <span>光度：-3.00</span>
+                                            <span>2019-06-10 17:28</span>
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </div>
+                            <div class="jt"></div>
+                        </div>
+                        <div class="com_items">
+                            <div class="left">
+                                <div class="photo"></div>
+                                <div class="uname">***0092***</div>
+                                <div class="vip">普通会员</div>
+
+                            </div>
+                            <div class="right">
+                                <div class="topic">
+                                    <b></b>
+                                    <b></b>
+                                    <b></b>
+                                    <b></b>
+                                    <b></b>
+                                </div>
+                                <div class="com_cnt">
+                                    <dl>
+                                        <dt>缺 点：</dt>
+                                        <dd>无</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>评论内容：</dt>
+                                        <dd>囤货囤货，今年第一次开始正式戴隐形，感觉还是日抛适合自己</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>规 格：</dt>
+                                        <dd>
+                                            <span>颜色：无色</span>
+                                            <span>光度：-3.00</span>
+                                            <span>2019-06-10 17:28</span>
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </div>
+                            <div class="jt"></div>
+                        </div>
+                        <div class="com_items">
+                            <div class="left">
+                                <div class="photo"></div>
+                                <div class="uname">***0092***</div>
+                                <div class="vip">普通会员</div>
+
+                            </div>
+                            <div class="right">
+                                <div class="topic">
+                                    <b></b>
+                                    <b></b>
+                                    <b></b>
+                                    <b></b>
+                                    <b></b>
+                                </div>
+                                <div class="com_cnt">
+                                    <dl>
+                                        <dt>缺 点：</dt>
+                                        <dd>无</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>评论内容：</dt>
+                                        <dd>囤货囤货，今年第一次开始正式戴隐形，感觉还是日抛适合自己</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>规 格：</dt>
+                                        <dd>
+                                            <span>颜色：无色</span>
+                                            <span>光度：-3.00</span>
+                                            <span>2019-06-10 17:28</span>
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </div>
+                            <div class="jt"></div>
+                        </div>
+                        <div class="com_items">
+                            <div class="left">
+                                <div class="photo"></div>
+                                <div class="uname">***0092***</div>
+                                <div class="vip">普通会员</div>
+
+                            </div>
+                            <div class="right">
+                                <div class="topic">
+                                    <b></b>
+                                    <b></b>
+                                    <b></b>
+                                    <b></b>
+                                    <b></b>
+                                </div>
+                                <div class="com_cnt">
+                                    <dl>
+                                        <dt>缺 点：</dt>
+                                        <dd>无</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>评论内容：</dt>
+                                        <dd>囤货囤货，今年第一次开始正式戴隐形，感觉还是日抛适合自己</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>规 格：</dt>
+                                        <dd>
+                                            <span>颜色：无色</span>
+                                            <span>光度：-3.00</span>
+                                            <span>2019-06-10 17:28</span>
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </div>
+                            <div class="jt"></div>
+                        </div>
+                        <div class="com_items">
+                            <div class="left">
+                                <div class="photo"></div>
+                                <div class="uname">***0092***</div>
+                                <div class="vip">普通会员</div>
+
+                            </div>
+                            <div class="right">
+                                <div class="topic">
+                                    <b></b>
+                                    <b></b>
+                                    <b></b>
+                                    <b></b>
+                                    <b></b>
+                                </div>
+                                <div class="com_cnt">
+                                    <dl>
+                                        <dt>缺 点：</dt>
+                                        <dd>无</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>评论内容：</dt>
+                                        <dd>囤货囤货，今年第一次开始正式戴隐形，感觉还是日抛适合自己</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>规 格：</dt>
+                                        <dd>
+                                            <span>颜色：无色</span>
+                                            <span>光度：-3.00</span>
+                                            <span>2019-06-10 17:28</span>
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </div>
+                            <div class="jt"></div>
+                        </div>
+                        <div class="com_items">
+                            <div class="left">
+                                <div class="photo"></div>
+                                <div class="uname">***0092***</div>
+                                <div class="vip">普通会员</div>
+
+                            </div>
+                            <div class="right">
+                                <div class="topic">
+                                    <b></b>
+                                    <b></b>
+                                    <b></b>
+                                    <b></b>
+                                    <b></b>
+                                </div>
+                                <div class="com_cnt">
+                                    <dl>
+                                        <dt>缺 点：</dt>
+                                        <dd>无</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>评论内容：</dt>
+                                        <dd>囤货囤货，今年第一次开始正式戴隐形，感觉还是日抛适合自己</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>规 格：</dt>
+                                        <dd>
+                                            <span>颜色：无色</span>
+                                            <span>光度：-3.00</span>
+                                            <span>2019-06-10 17:28</span>
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </div>
+                            <div class="jt"></div>
+                        </div>
+                        <div class="com_items">
+                            <div class="left">
+                                <div class="photo"></div>
+                                <div class="uname">***0092***</div>
+                                <div class="vip">普通会员</div>
+
+                            </div>
+                            <div class="right">
+                                <div class="topic">
+                                    <b></b>
+                                    <b></b>
+                                    <b></b>
+                                    <b></b>
+                                    <b></b>
+                                </div>
+                                <div class="com_cnt">
+                                    <dl>
+                                        <dt>缺 点：</dt>
+                                        <dd>无</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>评论内容：</dt>
+                                        <dd>囤货囤货，今年第一次开始正式戴隐形，感觉还是日抛适合自己</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>规 格：</dt>
+                                        <dd>
+                                            <span>颜色：无色</span>
+                                            <span>光度：-3.00</span>
+                                            <span>2019-06-10 17:28</span>
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </div>
+                            <div class="jt"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-----------------------中部结束----------------------------->
+
+    <div class="help clear">
+        <div class="text">
+            <h4>
+                <b style="background: url(./images/center/help.png) 0px 0px no-repeat"></b>
+                <span>购物指南</span>
+            </h4>
+            <ul>
+                <li>新手上路</li>
+                <li>订单状态</li>
+                <li>活动相关问题</li>
+                <li>优惠券使用指南</li>
+            </ul>
+        </div>
+        <div class="text">
+            <h4>
+                <b style="background: url(./images/center/help.png) -228px 0px no-repeat"></b>
+                <span>购物指南</span>
+            </h4>
+            <ul>
+                <li>新手上路</li>
+                <li>订单状态</li>
+                <li>活动相关问题</li>
+                <li>优惠券使用指南</li>
+            </ul>
+        </div>
+        <div class="text">
+            <h4>
+                <b style="background: url(./images/center/help.png) -110px 0px no-repeat"></b>
+                <span>购物指南</span>
+            </h4>
+            <ul>
+                <li>新手上路</li>
+                <li>订单状态</li>
+                <li>活动相关问题</li>
+                <li>优惠券使用指南</li>
+            </ul>
+        </div>
+        <div class="text">
+            <h4>
+                <b style="background: url(./images/center/help.png) -188px 0px no-repeat"></b>
+                <span>购物指南</span>
+            </h4>
+            <ul>
+                <li>新手上路</li>
+                <li>订单状态</li>
+                <li>活动相关问题</li>
+                <li>优惠券使用指南</li>
+            </ul>
+        </div>
+        <div class="text">
+            <h4>
+                <b style="background: url(./images/center/help.png) -74px 0px no-repeat"></b>
+                <span>购物指南</span>
+            </h4>
+            <ul>
+                <li>新手上路</li>
+                <li>订单状态</li>
+                <li>活动相关问题</li>
+                <li>优惠券使用指南</li>
+            </ul>
+        </div>
+        <div class="text">
+            <h4>
+                <b style="background: url(./images/center/help.png) -35px 0px no-repeat"></b>
+                <span>购物指南</span>
+            </h4>
+            <ul>
+                <li>新手上路</li>
+                <li>订单状态</li>
+                <li>活动相关问题</li>
+                <li>优惠券使用指南</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 底部 -->
+    <div class="w bot" style="margin-top: 10px">
+        <div class="shallow">
+            <p>Copyright ©2019 南京视客网络科技有限公司 版权所有. 法律顾问：秦在丛（执业编号：13201200411564699）</p>
+            <p>苏ICP备12054666号 &nbsp&nbsp&nbsp&nbsp ICP经营许可证：苏B2-20170205 &nbsp&nbsp&nbsp&nbsp
+                医疗器械经营许可证：苏宁食药监械经营许20170464号 &nbsp&nbsp&nbsp&nbsp 互联网药品信息服务资格证书编号：(苏)-经营性-2017-0005 &nbsp&nbsp&nbsp&nbsp
+                苏公网安备 32010402000492号</p>
+        </div>
+        <div class="bot_img">
+            <img src="./images/center/foot_zl.png" alt="">
+        </div>
+
+
+    </div>
+
+    <!-- 侧边导航 -->
+    <div class="fix_box">
+        <img src="./images/center/fixed_img.jpg" alt="">
+        <ul>
+            <li class="sun">
+                <a href="Javascript:;;">
+                    <i class="fbox_one icon"></i>
+                </a>
+            </li>
+            <li style="position: relative">
+                <a href="./shopping.html" style="padding: 17px 0px">
+                    <i style="height: auto" class="iCarts">购物车</i>
+                </a>
+            </li>
+            <li>
+                <a href="Javascript:;;" style="border-bottom: none;padding-top: 17px;padding-bottom: 17px">
+                    <i style="writing-mode: rl;line-height: 19px">会员中心</i>
+                </a>
+            </li>
+            <li>
+                <a href="Javascript:;;" style="padding-top: 14px;padding-bottom: 14px">
+                    <i style="line-height: 19px;writing-mode: rl;">在线客服</i>
+                </a>
+            </li>
+            <li>
+                <a href="Javascript:;;" style="border-bottom: none">
+                    <i class="iwechat icon"></i>
+                </a>
+            </li>
+            <li>
+                <a href="Javascript:;;" style="border-bottom: none">
+                    <i class="iweibo icon"></i>
+                </a>
+            </li>
+        </ul>
+        <div class="backtop">
+            <li>
+                <a href="Javascript:;;">
+                    <i class="arrow"></i>
+                </a>
+            </li>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/register.css">
+    <link rel="stylesheet" href="./css/login.css">
+    <script src="./js/jquery.js"></script>
+    <script src="./js/jquery-validation/jquery.validate.min.js"></script>
+    <!-- 自己定义表单校验方法 -->
+    <script src="./js/jquery-validation/additional-methods.js"></script>
+    <!-- 提供了中文信息提示包 -->
+    <script src="js/jquery-validation/localization/messages_zh.js"></script>
+    
+    <script src="./js/layer/layer.js"></script>
+</head>
+
+<body>
+    <div class="header">
+        <div class="h_center">
+            <img src="./images/header/logo_new.jpg" alt="">
+        </div>
+    </div>
+    <div class="center">
+        <div class="container clear">
+            <div class="c_left fl">
+                <img src="./images/product/c_left.jpg" alt="">
+            </div>
+            <div class="c_right fl">
+                <form action="">
+                    <ul>
+                        <li id="error">
+                            <label for="uname" id="uname-error" class="error"></label>
+                            <label for="upwd" id="upwd-error" class="error"></label>
+                            <label for="upwd2" id="upwd2-error" class="error"></label>
+                            <label for="uemail" id="uemail-error" class="error"></label>
+                            <label for="utelphone" id="uemail-error" class="error"></label>
+                        </li>
+                        <li>
+                            <div style="position: relative">
+                                <input name="uname" type="text" class="txt_com" placeholder="用户名">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="yzm_box" style="position: relative">
+                                <input name="upwd" id="upwd" type="password" class="txt_com" placeholder="密码">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="yzm_box" style="position: relative">
+                                <input name="upwd2" type="password" class="txt_com" placeholder="确认密码">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="yzm_box" style="position: relative">
+                                <input name="uemail" type="text" class="txt_com" placeholder="邮箱">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="yzm_box" style="position: relative">
+                                <input name="utelphone" type="text" class="txt_com" placeholder="手机号">
+                            </div>
+                        </li>
+                        <li>
+                            <input type="checkbox" class="ckb">
+                            <a href="Javascript:;;">已阅读并同意</a>
+                            <a href="Javascript:;;" style="color: #005bb5">注册协议</a>
+                        </li>
+                        <li>
+                            <button class="btn_com">注册</button>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="footer">
+        <div class="fo_center">
+            <p>Copyright ©2019 南京视客网络科技有限公司 版权所有. 法律顾问：秦在丛（执业编号：13201200411564699）</p>
+            <img src="./images/beiancode.jpg" alt="">
+            <a href="">
+                <img src="./images/center/police.png" alt="">
+                苏公网安备 32010402000492号
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    $(function () {
+        //自定义规则 校验用户名
+        $.validator.addMethod("checkeUname", function (value, element, params) {
+            return /^[a-z]+\w+$/i.test(value);
+        })
+        $.validator.addMethod("checkeEmail", function (value, element, params) {
+            return /^\w+\@\w+\.\w+$/.test(value);
+        })
+
+        $.validator.addMethod("checkeTelPhone", function (value, element, params) {
+            return /^[1]\d{10}$/.test(value);
+        })
+
+        $("form").validate({
+            //rules 规则
+            rules: {
+                uname: {
+                    required: true,
+                    rangelength: [6, 18],
+                    checkeUname: true,
+                    remote: { //就是 ajax ,只是 data有点不同
+                        url: "./../server/exitsUser.php",
+                        type: 'get',
+                        data: {
+                            uname: function () {
+                                return $("[name='uname']").val();
+                            }
+                        }
+                    }
+                },
+                upwd: {
+                    required: true,
+                    rangelength: [6, 18],
+                },
+                upwd2: {
+                    equalTo: "#upwd"
+                },
+
+                uemail: {
+                    checkeEmail: true,
+                },
+                utelphone: {
+                    checkeTelPhone: true,
+                }
+            },
+            messages: {
+                uname: {
+                    required: "用户名必填哦",
+                    rangelength: "用户名的长度必须是{0}-{1}位",
+                    checkeUname: "用户名不合法哦~",
+                    remote:"改用户已存在"
+                },
+                upwd: {
+                    required: "密码必填哦",
+                    rangelength: "密码的长度必须是{0}-{1}位",
+                },
+                upwd2: {
+                    equalTo: "2次密码不一致哦"
+                },
+
+                uemail: {
+                    checkeEmail: "邮箱不合法~"
+                },
+                utelphone: {
+                    checkeTelPhone: "手机号不合法"
+                }
+            },
+            submitHandler: function () {
+                // alert(123);
+                $.ajax({
+                    url: "../server/register.php",
+                    data: $("form").serialize(),
+                    type: 'post',
+                    dataType: "json"
+                }).then(function (res) {
+                    console.log(res)
+                    if (res.status == 1) {
+                        // layer.confirm("文子提示",{},yes,no)
+                        layer.confirm('是否需要立即去登录？',
+                            {
+                                icon: 1,
+                                title: res.msg,//提示
+                                skin: 'layui-layer-molv',//皮肤
+                                btn: ['是的', '不去'], //按钮列表
+                                time: 5000 // 2000毫秒自动关闭
+                            }, function (index) {
+                                location = "./login.html";
+                            }, function (index) {
+                                layer.close(index);//关闭
+                            });
+
+                    } else {
+
+                        layer.alert(res.msg, {
+                            icon: 2,
+                            skin: 'layui-layer-molv'
+                        })
+                    }
+                    // layer.msg(res.msg);
+                })
+                return false;
+            },
+
+           
+
+            
+        })
+
+
+    })
+
+
+</script>

@@ -1,0 +1,264 @@
+/* 登录注册栏 */
+.shortcut{
+    height: 30px;
+    color: #999;
+    font-size: 12px;
+    background-color: #f2f2f2;
+}
+.shortcut .sc_wrap{
+    height: 16px;
+    width: 1190px;
+    padding-top: 5px;
+    margin: auto;
+}
+.shortcut .sc_wrap a{
+    color: #999;
+}
+/* 左边 */
+.shortcut .sc_wrap .sc_left li{
+    float: left;
+}
+.shortcut .sc_wrap .sc_left li span{
+    margin: 0px 7px;
+}
+.shortcut .sc_wrap .sc_left .logon,.register{
+    margin-right: 10px;
+}
+
+/* 右边 */
+.shortcut .sc_wrap .sc_right li{
+    margin-left: 15px;
+    float: left;
+    padding: 0px 5px;
+}
+.shortcut .sc_wrap .sc_right li:nth-child(5) img{
+    width: 24px;
+    height: 24px;
+    margin-top: -3px;
+    margin-right: 2px;
+}
+.shortcut .sc_wrap .sc_right li .top_ewm{
+    width: 175px;
+    height: 215px;
+    position: absolute;
+    right: 112px;
+    top: 26px;
+    display: none;
+}
+.shortcut .sc_wrap .sc_right .sc_ewm a{
+    display: inline-block;
+    padding: 0px 2px; 
+}
+.shortcut .sc_wrap .sc_right .sc_ewm a:hover .top_ewm{
+    display: block;
+}
+.shortcut .sc_wrap .sc_right li .top_ewm img{
+    background-size: 100%;
+}
+
+/* 顶部轮播 */
+.ad_banner{
+    width: 100%;
+    margin: 5px auto 0px;
+    
+}
+.ad_banner .h_img{
+    width: 1190px;
+    margin: 0px auto;
+}
+
+/* 头部搜索 */
+.hearder{
+    width: 1190px;
+    height: 91px;
+    margin: 20px auto;
+    display: flex;
+}
+.hearder .search{
+    margin-left: 60px;
+    padding-top: 30px;
+}
+.hearder .search .s_input{
+    height: 40px;
+    width: 650px;
+    background-color: #c40000;
+    margin-bottom: 5px;
+}
+.hearder .search .s_input input{
+    width: 510px;
+    height: 29px;
+    margin: 2px 0px 0px 2px;
+    padding: 3px 0px 0px 3px;
+    line-height: 29px;
+}
+.hearder .search .s_input button{
+    height: 40px;
+    width: 126px;
+    line-height: 40px;
+    text-align: center;
+    background-color: #c40000;
+    border: 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+}
+.hearder .search ul{
+    font-size: 14px;
+    color: #666666;
+    height: 16px;
+    line-height: 16px;
+}
+.hearder .search ul li{
+    float: left;
+    margin-right: 5px;
+    font-family: "宋体"
+}
+
+.h_banner{
+    height: 37px;
+    width: 100%;
+    background-color: #DD2727;
+}
+
+/* 头部导航 */
+.menu_b{
+    height: 37px;
+    width: 100%;
+    background-color: #DD2727;
+}
+
+.menu_b .menu{
+    width: 1190px;
+    
+   height: 37px;
+    margin: 0 auto;
+    display: flex;
+}
+.menu_b .menu .short_list{
+   width: 200px; 
+   height: 37px;
+   position: relative;
+   z-index: 1000;
+}
+
+
+.menu_b .menu .short_list h2{
+    height: 37px;
+    font-size: 14px;
+    color: #fff;
+    line-height: 37px;
+    text-align: center;
+    background-color: #c40000;
+}
+.menu_b .menu .short_list .alllist{
+    position: absolute;
+    width: 198px;
+}
+.menu_b .menu .short_list .alllist .navlist{
+    height: 64px;
+    line-height: 26px;
+    border-bottom: 1px solid #e8e8e8;
+    box-sizing: border-box;
+}
+.menu_b .menu .short_list .alllist .navlist h3{
+    padding-left: 15px;
+    font-size: 12px;
+    display: flex;
+}
+.menu_b .menu .short_list .alllist .navlist h3.hover{
+    background-color: #efefef;
+    /* position: absolute; */
+    /* z-index: 2; */
+    /* background-position: 0 -52px; */
+    box-shadow: 1px 1px 5px #999;
+}
+.menu_b .menu .short_list .alllist .navlist h3 div:nth-child(1){
+    width: 39px;
+    height: 64px;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+}
+.menu_b .menu .short_list .alllist .navlist h3 .navlist1{
+    background: url(./../images/header/index_leftmenu.png) no-repeat -8px 0;
+}
+.menu_b .menu .short_list .alllist .navlist h3 .navlist2{
+    top:64px;
+    background: url(./../images/header/index_leftmenu.png) no-repeat -8px -60px;
+}
+.menu_b .menu .short_list .alllist .navlist h3 .navlist3{
+    top: 128px;
+    background: url(./../images/header/index_leftmenu.png) no-repeat -8px -124px;
+}
+.menu_b .menu .short_list .alllist .navlist h3 .navlist4{
+    top: 196px;
+    background: url(./../images/header/index_leftmenu.png) no-repeat -8px -192px;
+}
+.menu_b .menu .short_list .alllist .navlist h3 .navlist5{
+    background: url(./../images/header/index_leftmenu.png) no-repeat -8px -256px;
+}
+.menu_b .menu .short_list .alllist .navlist h3 div:nth-child(2){
+    height: 56px;
+    padding-top: 8px;
+    margin-left: 32px;
+}
+.menu_b .menu .short_list .alllist .navlist h3 div span:nth-child(1){
+    font-size: 14px;
+    color: #333;
+    font-weight: bold;
+}
+.menu_b .menu .short_list .alllist .navlist .navMore{
+    position: absolute;
+    z-index: -2;
+    top: 0px;
+    left: 197px;
+    width: 700px;
+    border: 1px solid #efefef;
+    box-shadow: 1px 1px 10px #999;
+    background-color: #fff;
+    display: none;
+}
+.menu_b .menu .short_list .alllist .navlist:hover .navMore{
+    display: block;
+}
+.menu_b .menu .short_list .alllist .navlist .navMore .xilie{
+    padding-bottom: 10px;
+    min-height: 353px;
+    width: 700px;
+}
+.menu_b .menu .short_list .alllist .navlist .navMore .xilie dl{
+    padding: 10px 0 5px 0;
+    margin-left: 10px;
+    color: #333;
+    border-bottom: 1px dotted #EEE;
+    width: 98%;
+}
+.menu_b .menu .short_list .alllist .navlist .navMore .xilie dl dt{
+    padding-left: 10px;
+    width: 98%;
+    font-weight: 700;
+}
+.menu_b .menu .short_list .alllist .navlist .navMore .xilie dl dd{
+    padding-left: 10px;
+    line-height: 22px;
+}
+.menu_b .menu .short_list .alllist .navlist .navMore .xilie dl dd a{
+    height: 18px;
+    line-height: 18px;
+    margin-right: 15px;
+    margin-top: 5px;
+    padding-right: 10px;
+}
+.menu_b .menu ul{
+    display: flex;
+}
+.menu_b .menu ul li{
+    font-weight: bold;
+    line-height: 37px;
+    padding: 0px 18px;
+    color: #fff;
+    font-size: 14px;
+}
+
+

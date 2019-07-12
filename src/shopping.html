@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/shopping.css">
+    <script src="js/jquery.js"></script>
+    <script src="./js/shopping.js"></script>
+    <script src="./js/layer/layer.js"></script>
+</head>
+<script>
+    $(function () {
+        $(window).on("load", function () {
+            var oUser = document.getElementById("user");
+
+            $(".noLogin").show()
+            $(".isLogin").hide()
+            $.ajax({
+                url: "./../server/islogin.php",
+                dataType: "json"
+            }).then(function (res) {
+                if (res.status == false) {
+                    //没登录
+                    $(".noLogin").show()
+                    $(".isLogin").hide()
+
+                    window.location = "./register.html";
+                } else {
+                    //已经登录
+                    $(".noLogin").hide()
+                    $(".isLogin").show()
+                    let userData = JSON.parse(localStorage.getItem("user"));
+                    oUser.innerText = userData.u_name;
+                }
+            })
+            $(".quit").on("click", function () {
+                $.ajax({
+                    url: "./../server/exitlogin.php"
+                }).then(function () {
+                    window.location = "./login.html";
+                })
+
+            })
+
+        })
+    })
+
+
+</script>
+
+<body>
+    <div class="shortcut">
+        <div class="sc_wrap">
+            <ul class="sc_left fl">
+                <li>收藏视客眼镜网</li>
+                <li><span>|</span></li>
+                <li class="noLogin">
+                    <p class="register fl">
+                        <a href="./login.html">登录</a>
+                    </p>
+                    <p class="logon fl">
+                        <a href="./register.html">注册</a>
+                    </p>
+                </li>
+                <li class="isLogin">
+                    <div class="box">欢迎:
+                        <span id="user"></span>
+                        <a href="javascript:void(0)" class="quit">退出登录</a></span></div>
+                </li>
+            </ul>
+            <ul class="sc_right fr">
+                <li>我的视客</li>
+                <li>我的订单</li>
+                <li>帮助中心</li>
+                <li>|</li>
+                <li>
+                    <a href="./shopping.html">
+                        <img src="./images/header/maincart.png" alt="">
+                    </a>
+                </li>
+                <li style="margin-left: 3px">
+                    <a href="./shopping.html"> 购物车</a>
+                </li>
+                <li>
+                    <img src="./images/header/phone.png" alt="">
+                </li>
+                <li style="margin-left: 3px" class="sc_ewm">
+                    <a href="JavaScript:;;"> 手机版
+                        <div class="top_ewm">
+                            <img src="./images/header/pic2wei.jpg" alt="">
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <img src="./images/header/Customer.png" alt="">
+                </li>
+                <li style="margin-left: 3px">在线客服</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="w">
+        <a href="./shike.html" class="fl">
+            <img src="./images/header/logo_new.jpg" alt="">
+        </a>
+        <div class="process" style="display: none">
+            <div>
+                <span class="dot"></span>
+                <span class="line"></span>
+                <span class="dot" style="background-color: #fff;border: 2px solid #863177;"></span>
+                <span class="line"></span>
+                <span class="dot" style="background-color: #fff;border: 2px solid #863177;"></span>
+            </div>
+            <div style="margin-top: 10px; font-size: 14px">
+                <span style="position: relative;left:-13px;font-size: 14px">购物车</span>
+                <span style="margin-left: 60px;">核对订单信息</span>
+                <span style="margin-left: 62px;">下单成功</span>
+            </div>
+        </div>
+        <div class="logo">
+
+            <div class="search">
+                <div class="search_box">
+                    <input type="text" placeholder="硅水凝胶">
+                    <button>搜索</button>
+                </div>
+            </div>
+        </div>
+        <div class="w nav_choose clear">
+            <li>购物车列表 <span></span> </li>
+
+        </div>
+    </div>
+
+    <div class="w" style="margin-top: 10px">
+
+        <div class="cartlist">
+            <ul class="cartTitle clear">
+                <li></li>
+                <li>商品信息</li>
+                <li>单价</li>
+                <li>数量</li>
+                <li>总金额</li>
+                <li>操作</li>
+            </ul>
+
+        </div>
+        <div class="cartTotal">
+
+        </div>
+        <div class="totalEnd clear">
+            <div class="zysx fl">
+                <img src="./images/alarm.png" alt="">
+                <span>请仔细核对隐形眼镜的颜色和度数！</span>
+                <div id="tPrice">
+                    合计（不含运费）：￥<span class="totalPrice">0</span>
+                </div>
+            </div>
+            <button class="cartBotton fl">去结算</button>
+        </div>
+
+        <div class="car_empty">
+            <div style="padding-left: 400px">
+                <img src="./images/shopCar.png" alt="">
+                <h2>您的购物车还是空的,赶紧行动吧！您可以：</h2>
+                <!-- <p>
+                    <a href="./register.html">去登录 </a>
+                    登陆后，将显示您之前加入的商品
+                </p> -->
+                <p style="padding-left: 62px">
+                    <a href="./shike.html">去首页</a>
+                    或
+                    <a href="">去搜索</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="w" style="margin-bottom: 30px;margin-top: 10px">
+        <div class="fo_center">
+            Copyright ©2019 南京视客网络科技有限公司 版权所有. 法律顾问：秦在丛（执业编号：13201200411564699）
+        </div>
+    </div>
+</body>
+
+</html>

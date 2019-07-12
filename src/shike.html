@@ -1,0 +1,1926 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/center.css">
+    <link rel="stylesheet" href="./css/footer.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/shike.js"></script>
+    <script src="js/rightnav.js"></script>
+    <script src="js/jquery.lazyload.js"></script>
+</head>
+<script>
+    $(function () {
+        $(window).on("load", function () {
+            var oUser = document.getElementById("user");
+
+            $(".noLogin").show()
+            $(".isLogin").hide()
+            $.ajax({
+                url: "./../server/islogin.php",
+                dataType: "json"
+            }).then(function (res) {
+                if (res.status == false) {
+                    //没登录
+                    $(".noLogin").show()
+                    $(".isLogin").hide()
+
+                    // window.location = "./login.html";
+                } else {
+                    //已经登录
+                    $(".noLogin").hide()
+                    $(".isLogin").show()
+                    let userData = JSON.parse(localStorage.getItem("user"));
+                    oUser.innerText = userData.u_name;
+                }
+            })
+            $(".quit").on("click", function () {
+                $.ajax({
+                    url: "./../server/exitlogin.php"
+                }).then(function () {
+                    window.location = "./login.html";
+                })
+
+            })
+
+        })
+    })
+
+</script>
+
+<body>
+    <!-- 登录注册栏 -->
+    <div class="shortcut">
+        <div class="sc_wrap">
+            <ul class="sc_left fl">
+                <li>收藏视客眼镜网</li>
+                <li><span>|</span></li>
+                <li class="noLogin">
+                    <p class="register fl">
+                        <a href="./login.html">登录</a>
+                    </p>
+                    <p class="logon fl">
+                        <a href="./register.html">注册</a>
+                    </p>
+                </li>
+                <li class="isLogin">
+                    <div class="box">欢迎:
+                        <span id="user"></span>
+                        <span><a href="javascript:void(0)" class="quit">退出登录</a></span></div>
+                </li>
+
+            </ul>
+            <ul class="sc_right fr">
+                <li>我的视客</li>
+                <li>我的订单</li>
+                <li>帮助中心</li>
+                <li>|</li>
+                <li>
+                    <a href="./shopping.html">
+                        <img src="./images/header/maincart.png" alt="">
+                    </a>
+                </li>
+                <li style="margin-left: 3px">
+                    <a href="./shopping.html"> 购物车</a>
+                </li>
+                <li>
+                    <img src="./images/header/phone.png" alt="">
+                </li>
+                <li style="margin-left: 3px" class="sc_ewm">
+                    <a href="JavaScript:;;"> 手机版
+                        <div class="top_ewm">
+                            <img src="./images/header/pic2wei.jpg" alt="">
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <img src="./images/header/Customer.png" alt="">
+                </li>
+                <li style="margin-left: 3px">在线客服</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 顶部轮播 -->
+    <div class="ad_banner">
+        <div class="h_img">
+            <img src="./images/header/ad_banner.jpg" alt="">
+        </div>
+    </div>
+
+    <!-- 头部搜索 -->
+    <div class="hearder">
+        <img src="./images/header/logo_new.jpg" alt="">
+        <div class="search">
+            <div class="s_input">
+                <input type="text" placeholder="硅水凝胶">
+                <button>搜索</button>
+            </div>
+            <ul>
+                <li>清氧清</li>
+                <li>博士伦</li>
+                <li>强生舒日</li>
+                <li>舒视氧</li>
+                <li style="color:#d03805">美若康</li>
+                <li>茵洛Clalen</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 头部导航 -->
+    <div class="menu_b">
+        <div class="menu">
+            <div class="short_list">
+                <h2>所有商品分类</h2>
+                <div class="alllist">
+                    <div class="navlist">
+                        <h3 class="">
+                            <div class="navlist1"></div>
+                            <div>
+                                <span>隐形眼镜</span><br>
+                                <span>博士伦</span>
+                                <span>库博</span>
+                                <span>硅水凝胶</span>
+                            </div>
+                        </h3>
+                        <div class="navMore">
+                            <div class="xilie">
+                                <dl>
+                                    <dt>
+                                        热销品牌
+                                    </dt>
+                                    <dd>
+                                        <a href="Javascript:;;">博士伦</a>
+                                        <a href="Javascript:;;">强生</a>
+                                        <a href="Javascript:;;">爱尔康视康</a>
+                                        <a href="Javascript:;;">库博</a>
+                                        <a href="Javascript:;;">海昌</a>
+                                        <a href="Javascript:;;">美若康</a>
+                                        <a href="Javascript:;;">clalen</a>
+                                        <a href="Javascript:;;">miru米如</a>
+                                        <a href="Javascript:;;">科莱博</a>
+                                        <a href="Javascript:;;">菲士康</a>
+                                        <a href="Javascript:;;">蔡司</a>
+                                        <a href="Javascript:;;">卫康</a>
+                                        <a href="Javascript:;;">更多品牌 >> </a>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>
+                                        人气系列
+                                    </dt>
+                                    <dd>
+                                        <a href="Javascript:;;">博士伦|清朗</a>
+                                        <a href="Javascript:;;">库博|宝润清</a>
+                                        <a href="Javascript:;;">强生|舒日</a>
+                                        <a href="Javascript:;;">视康|舒适氧</a>
+                                        <a href="Javascript:;;">库博|莫视明</a>
+                                        <a href="Javascript:;;">美若康|沐氧</a>
+                                        <a href="Javascript:;;">茵洛|clalen</a>
+                                        <a href="Javascript:;;">视康|日夜型</a>
+                                        <a href="Javascript:;;">海昌|EASY DAY</a>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>
+                                        抛弃周期
+                                    </dt>
+                                    <dd>
+                                        <a href="Javascript:;;">日抛</a>
+                                        <a href="Javascript:;;">双周抛</a>
+                                        <a href="Javascript:;;">月抛</a>
+                                        <a href="Javascript:;;">半年抛</a>
+                                        <a href="Javascript:;;">年抛</a>
+
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>
+                                        佩戴场合
+                                    </dt>
+                                    <dd>
+                                        <a href="Javascript:;;">外出游玩(方便卫生)</a>
+                                        <a href="Javascript:;;">商务职场(舒适自在)</a>
+                                        <a href="Javascript:;;">青春校园(经济适用)</a>
+                                        <a href="Javascript:;;">逛街聚会(安心长戴)</a>
+
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>
+                                        镜片特点
+                                    </dt>
+                                    <dd>
+                                        <a href="Javascript:;;">高透氧(硅水凝胶)</a>
+                                        <a href="Javascript:;;">散光、远视、高度近视</a>
+                                        <a href="Javascript:;;">青春校园(经济适用)</a>
+                                        <a href="Javascript:;;">逛街聚会(安心长戴)</a>
+
+                                    </dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="navlist">
+                        <h3>
+                            <div class="navlist2"></div>
+                            <div>
+                                <span>彩色隐形眼镜</span><br>
+                                <span>强生美瞳</span>
+                                <span>博士伦</span>
+                                <span>实瞳</span>
+                            </div>
+                        </h3>
+                        <div class="navMore">
+                            <div class="xilie">
+                                <dl>
+                                    <dt>
+                                        热销品牌
+                                    </dt>
+                                    <dd>
+                                        <a href="Javascript:;;">博士伦</a>
+                                        <a href="Javascript:;;">强生</a>
+                                        <a href="Javascript:;;">爱尔康视康</a>
+                                        <a href="Javascript:;;">库博</a>
+                                        <a href="Javascript:;;">海昌</a>
+                                        <a href="Javascript:;;">美若康</a>
+                                        <a href="Javascript:;;">clalen</a>
+                                        <a href="Javascript:;;">miru米如</a>
+                                        <a href="Javascript:;;">科莱博</a>
+                                        <a href="Javascript:;;">菲士康</a>
+                                        <a href="Javascript:;;">蔡司</a>
+                                        <a href="Javascript:;;">卫康</a>
+                                        <a href="Javascript:;;">更多品牌 >> </a>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>
+                                        人气系列
+                                    </dt>
+                                    <dd>
+                                        <a href="Javascript:;;">博士伦|清朗</a>
+                                        <a href="Javascript:;;">库博|宝润清</a>
+                                        <a href="Javascript:;;">强生|舒日</a>
+                                        <a href="Javascript:;;">视康|舒适氧</a>
+                                        <a href="Javascript:;;">库博|莫视明</a>
+                                        <a href="Javascript:;;">美若康|沐氧</a>
+                                        <a href="Javascript:;;">茵洛|clalen</a>
+                                        <a href="Javascript:;;">视康|日夜型</a>
+                                        <a href="Javascript:;;">海昌|EASY DAY</a>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>
+                                        抛弃周期
+                                    </dt>
+                                    <dd>
+                                        <a href="Javascript:;;">日抛</a>
+                                        <a href="Javascript:;;">双周抛</a>
+                                        <a href="Javascript:;;">月抛</a>
+                                        <a href="Javascript:;;">半年抛</a>
+                                        <a href="Javascript:;;">年抛</a>
+
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>
+                                        畅销花色
+                                    </dt>
+                                    <dd>
+                                        <a href="Javascript:;;">蕾丝</a>
+                                        <a href="Javascript:;;">钻石</a>
+                                        <a href="Javascript:;;">巨目</a>
+                                        <a href="Javascript:;;">梦幻</a>
+                                        <a href="Javascript:;;">双色</a>
+                                        <a href="Javascript:;;">三色</a>
+
+                                    </dd>
+                                </dl>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="navlist">
+                        <h3>
+                            <div class="navlist3"></div>
+                            <div>
+                                <span>护理用品</span><br>
+                                <span>护理液</span>
+                                <span>润眼液</span>
+                                <span>硬镜护理</span>
+                            </div>
+                        </h3>
+                        <div class="navMore">
+                            <div class="xilie">
+
+                                <dl>
+                                    <dt>
+                                        人气系列
+                                    </dt>
+                                    <dd>
+                                        <a href="Javascript:;;">博士伦|清朗</a>
+                                        <a href="Javascript:;;">库博|宝润清</a>
+                                        <a href="Javascript:;;">强生|舒日</a>
+                                        <a href="Javascript:;;">视康|舒适氧</a>
+                                        <a href="Javascript:;;">库博|莫视明</a>
+                                        <a href="Javascript:;;">美若康|沐氧</a>
+                                        <a href="Javascript:;;">茵洛|clalen</a>
+                                        <a href="Javascript:;;">视康|日夜型</a>
+                                        <a href="Javascript:;;">海昌|EASY DAY</a>
+                                        <a href="Javascript:;;">视康|日夜型</a>
+                                        <a href="Javascript:;;">更多品牌 >> </a>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>
+                                        润眼液
+                                    </dt>
+                                    <dd>
+                                        <a href="Javascript:;;">博士伦</a>
+                                        <a href="Javascript:;;">强生</a>
+                                        <a href="Javascript:;;">爱尔康视康</a>
+                                        <a href="Javascript:;;">库博</a>
+
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>
+                                        人气系列
+                                    </dt>
+                                    <dd>
+                                        <a href="Javascript:;;">博士伦|清朗</a>
+                                        <a href="Javascript:;;">库博|宝润清</a>
+                                        <a href="Javascript:;;">强生|舒日</a>
+                                        <a href="Javascript:;;">视康|舒适氧</a>
+
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>
+                                        伴侣盒
+                                    </dt>
+                                    <dd>
+                                        <a href="Javascript:;;">Holy nara</a>
+                                        <a href="Javascript:;;">凯达/好品质</a>
+
+
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>
+                                        人气搜索
+                                    </dt>
+                                    <dd>
+                                        <a href="Javascript:;;">促销装</a>
+                                        <a href="Javascript:;;">原装进口</a>
+                                        <a href="Javascript:;;">水润保湿</a>
+                                        <a href="Javascript:;;">不含防腐剂</a>
+                                        <a href="Javascript:;;">框架镜清洗液</a>
+                                    </dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="navlist">
+                        <h3>
+                            <div class="navlist4"></div>
+                            <div>
+                                <span>太阳眼镜</span><br>
+                                <span>雷朋</span>
+                                <span>朵米娜</span>
+                                <span>偏光太阳镜</span>
+                            </div>
+                        </h3>
+                        <div class="navMore">
+                            <div class="xilie">
+                                <dl>
+                                    <dt>
+                                        热销品牌
+                                    </dt>
+                                    <dd>
+                                        <a href="Javascript:;;">博士伦</a>
+                                        <a href="Javascript:;;">强生</a>
+                                        <a href="Javascript:;;">爱尔康视康</a>
+                                        <a href="Javascript:;;">库博</a>
+                                        <a href="Javascript:;;">海昌</a>
+                                        <a href="Javascript:;;">美若康</a>
+
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>
+                                        人气系列
+                                    </dt>
+                                    <dd>
+                                        <a href="Javascript:;;">博士伦/清朗</a>
+                                        <a href="Javascript:;;">库博/宝润清</a>
+                                        <a href="Javascript:;;">强生/舒日</a>
+                                        <a href="Javascript:;;">视康/舒适氧</a>
+                                        <a href="Javascript:;;">库博/莫视明</a>
+
+                                    </dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="navlist">
+                        <h3>
+                            <div class="navlist5"></div>
+                            <div>
+                                <span>功能眼镜</span><br>
+                                <span>游泳镜</span>
+                                <span>篮球镜</span>
+                                <span>老花镜</span>
+                            </div>
+                        </h3>
+                        <div class="navMore">
+                            <div class="xilie">
+                                <dl>
+                                    <dt>
+                                        热销品牌
+                                    </dt>
+                                    <dd>
+                                        <a href="Javascript:;;">博士伦</a>
+                                        <a href="Javascript:;;">强生</a>
+                                        <a href="Javascript:;;">爱尔康视康</a>
+                                        <a href="Javascript:;;">库博</a>
+                                        <a href="Javascript:;;">海昌</a>
+                                        <a href="Javascript:;;">美若康</a>
+
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>
+                                        人气系列
+                                    </dt>
+                                    <dd>
+                                        <a href="Javascript:;;">博士伦/清朗</a>
+                                        <a href="Javascript:;;">库博/宝润清</a>
+                                        <a href="Javascript:;;">强生/舒日</a>
+                                        <a href="Javascript:;;">视康/舒适氧</a>
+                                        <a href="Javascript:;;">库博/莫视明</a>
+
+                                    </dd>
+                                </dl>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <ul>
+                <li>首页</li>
+                <li>海淘
+                    <i style="font-size:12px;position:relative;top:-7px;font-weight:400;left:-2px;">new</i>
+                </li>
+                <li>i秒杀/今日值得购买</li>
+                <li>隐形眼镜</li>
+                <li>硅水凝胶</li>
+                <li>美瞳</li>
+                <li>镜片护理</li>
+                <li>眼镜学堂</li>
+                <li>金币商城</li>
+            </ul>
+        </div>
+    </div>
+    <!--------------------头部结束----------------------->
+
+
+    <div class="center">
+        <!-- 轮播区 -->
+        <div class="w" style="height: 320px">
+            <div class="focus fl">
+                <ul class="fo_img">
+                    <li>
+                        <img src="./images/center/banner1.jpg" alt="">
+                    </li>
+                    <li>
+                        <img src="./images/center/banner2.jpg" alt="">
+                    </li>
+                    <li>
+                        <img src="./images/center/banner3.jpg" alt="">
+                    </li>
+                    <li>
+                        <img src="./images/center/banner4.jpg" alt="">
+                    </li>
+                    <li>
+                        <img src="./images/center/banner8.jpg" alt="">
+                    </li>
+                    <li>
+                        <img src="./images/center/banner9.jpg" alt="">
+                    </li>
+                    <li>
+                        <img src="./images/center/banner3.jpg" alt="">
+                    </li>
+                </ul>
+                <div class="btn btn_left" style="display: none"></div>
+                <div class="btn btn_right" style="display: none"></div>
+                <ol class="fo_nav">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ol>
+            </div>
+            <div class="focu_right fr">
+                <img src="./images/center/focus_r.jpg" alt="">
+            </div>
+        </div>
+        <div class="w w3">
+            <div class="new fl">
+                <ul class="in_pro">
+                    <li class="active">视客公告</li>
+                    <li>最新活动</li>
+                </ul>
+                <div class="w3_content gonggao">
+                    <ul>
+                        <li>视客海淘物流服务升级<span>03/12</span></li>
+                        <li>货到付款2月1日起仅发...<span>07/16</span></li>
+                        <li>青岛地区物流通知<span>05/28</span></li>
+                        <li>春节期间物流客服通知<span>02/08</span></li>
+                    </ul>
+                </div>
+                <div class="w3_content tongzhi">
+                    <ul>
+                        <li>春节期间物流停发通知<span>03/12</span></li>
+                        <li>上海地区物流通知<span>07/16</span></li>
+                        <li>货到付款2月1日起仅发...<span>05/28</span></li>
+                        <li>青岛地区物流通知<span>02/08</span></li>
+                        <li>春节期间物流、客服通知<span>02/08</span></li>
+                        <li>春节期间货到付款订单通...<span>02/08</span></li>
+                    </ul>
+                </div>
+            </div>
+            <ul class="silde_c fl">
+                <li>
+                    <img src="./images/center/banner5.jpg" alt="">
+                </li>
+                <li>
+                    <img src="./images/center/banner6.jpg" alt="">
+                </li>
+                <li>
+                    <img src="./images/center/banner7.jpg" alt="">
+                </li>
+                <li>
+                    <img src="./images/center/banner5.jpg" alt="">
+                </li>
+                <li>
+                    <img src="./images/center/banner11.jpg" alt="">
+                </li>
+            </ul>
+        </div>
+        <div class="w top_logo">
+            <ul>
+                <li><img src="./images/center/littlelg1.png" alt=""></li>
+                <li><img src="./images/center/littlelg2.png" alt=""></li>
+                <li><img src="./images/center/littlelg3.jpg" alt=""></li>
+                <li><img src="./images/center/littlelg4.jpg" alt=""></li>
+                <li><img src="./images/center/littlelg5.jpg" alt=""></li>
+                <li><img src="./images/center/little6.jpg" alt=""></li>
+                <li><img src="./images/center/little7.jpg" alt=""></li>
+                <li><img src="./images/center/little8.jpg" alt=""></li>
+                <li><img src="./images/center/little9.png" alt=""></li>
+                <li><img src="./images/center/littlelg2.png" alt=""></li>
+            </ul>
+        </div>
+        <!-- 热卖单品 -->
+        <div class="w hot">
+            <div class="hot_h">
+                <h3>热卖单品</h3>
+                <div class="hot_key">
+                    <ul>
+                        <li>博士伦</li>
+                        <span>|</span>
+                        <li>爱尔康</li>
+                        <span>|</span>
+                        <li>库博</li>
+                        <span>|</span>
+                        <li>海昌</li>
+                        <span>|</span>
+                        <li>硅水凝胶</li>
+                    </ul>
+                </div>
+            </div>
+            <ul id="hot_box">
+                
+                <li>
+                    <div class="hot_pro">
+                        <a href="Javascript:;;">
+                            <img src="./images/center/center0-4.jpg" alt="">
+                        </a>
+                        <p>
+                            <a href="Javascript:;;">美若康沐氧10片装</a>
+                        </p>
+                        <p>
+                            <span class="price">¥45.00</span>
+                            <span class="tag">降价</span>
+                        </p>
+                        <p class="pro_com">
+                            <span>741</span>评论
+                            <span class="tep">|</span>
+                            <span>98%</span>好评
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <div class="hot_pro">
+                        <a href="Javascript:;;">
+                            <img src="./images/center/center0-1.jpg" alt="">
+                        </a>
+                        <p>
+                            <a href="Javascript:;;">美若康沐氧10片装</a>
+                        </p>
+                        <p>
+                            <span class="price">¥45.00</span>
+                            <span class="tag">降价</span>
+                        </p>
+                        <p class="pro_com">
+                            <span>741</span>评论
+                            <span class="tep">|</span>
+                            <span>98%</span>好评
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <div class="hot_pro">
+                        <a href="Javascript:;;">
+                            <img src="./images/center/center0-2.jpg" alt="">
+                        </a>
+                        <p>
+                            <a href="Javascript:;;">美若康沐氧10片装</a>
+                        </p>
+                        <p>
+                            <span class="price">¥45.00</span>
+                            <span class="tag">降价</span>
+                        </p>
+                        <p class="pro_com">
+                            <span>741</span>评论
+                            <span class="tep">|</span>
+                            <span>98%</span>好评
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <div class="hot_pro">
+                        <a href="Javascript:;;">
+                            <img src="./images/center/center0-3.jpg" alt="">
+                        </a>
+                        <p>
+                            <a href="Javascript:;;">美若康沐氧10片装</a>
+                        </p>
+                        <p>
+                            <span class="price">¥45.00</span>
+                            <span class="tag">降价</span>
+                        </p>
+                        <p class="pro_com">
+                            <span>741</span>评论
+                            <span class="tep">|</span>
+                            <span>98%</span>好评
+                        </p>
+                    </div>
+                </li>
+                <!-- 第一行结束 -->
+                <li>
+                    <div class="hot_pro">
+                        <a href="Javascript:;;">
+                            <img src="./images/center/center1-1.jpg" alt="">
+                        </a>
+                        <p>
+                            <a href="Javascript:;;">美若康沐氧10片装</a>
+                        </p>
+                        <p>
+                            <span class="price">¥45.00</span>
+                            <span class="tag">降价</span>
+                        </p>
+                        <p class="pro_com">
+                            <span>741</span>评论
+                            <span class="tep">|</span>
+                            <span>98%</span>好评
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <div class="hot_pro">
+                        <a href="Javascript:;;">
+                            <img src="./images/center/center1-2.jpg" alt="">
+                        </a>
+                        <p>
+                            <a href="Javascript:;;">美若康沐氧10片装</a>
+                        </p>
+                        <p>
+                            <span class="price">¥45.00</span>
+                            <span class="tag">降价</span>
+                        </p>
+                        <p class="pro_com">
+                            <span>741</span>评论
+                            <span class="tep">|</span>
+                            <span>98%</span>好评
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <div class="hot_pro">
+                        <a href="Javascript:;;">
+                            <img src="./images/center/center1-3.jpg" alt="">
+                        </a>
+                        <p>
+                            <a href="Javascript:;;">美若康沐氧10片装</a>
+                        </p>
+                        <p>
+                            <span class="price">¥45.00</span>
+                            <span class="tag">降价</span>
+                        </p>
+                        <p class="pro_com">
+                            <span>741</span>评论
+                            <span class="tep">|</span>
+                            <span>98%</span>好评
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <div class="hot_pro">
+                        <a href="Javascript:;;">
+                            <img src="./images/center/center1-4.jpg" alt="">
+                        </a>
+                        <p>
+                            <a href="Javascript:;;">美若康沐氧10片装</a>
+                        </p>
+                        <p>
+                            <span class="price">¥45.00</span>
+                            <span class="tag">降价</span>
+                        </p>
+                        <p class="pro_com">
+                            <span>741</span>评论
+                            <span class="tep">|</span>
+                            <span>98%</span>好评
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <div class="hot_pro">
+                        <a href="Javascript:;;">
+                            <img src="./images/center/center1-1.jpg" alt="">
+                        </a>
+                        <p>
+                            <a href="Javascript:;;">美若康沐氧10片装</a>
+                        </p>
+                        <p>
+                            <span class="price">¥45.00</span>
+                            <span class="tag">降价</span>
+                        </p>
+                        <p class="pro_com">
+                            <span>741</span>评论
+                            <span class="tep">|</span>
+                            <span>98%</span>好评
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <div class="hot_pro">
+                        <a href="Javascript:;;">
+                            <img src="./images/center/center1-2.jpg" alt="">
+                        </a>
+                        <p>
+                            <a href="Javascript:;;">美若康沐氧10片装</a>
+                        </p>
+                        <p>
+                            <span class="price">¥45.00</span>
+                            <span class="tag">降价</span>
+                        </p>
+                        <p class="pro_com">
+                            <span>741</span>评论
+                            <span class="tep">|</span>
+                            <span>98%</span>好评
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <div class="hot_pro">
+                        <a href="Javascript:;;">
+                            <img src="./images/center/center1-3.jpg" alt="">
+                        </a>
+                        <p>
+                            <a href="Javascript:;;">美若康沐氧10片装</a>
+                        </p>
+                        <p>
+                            <span class="price">¥45.00</span>
+                            <span class="tag">降价</span>
+                        </p>
+                        <p class="pro_com">
+                            <span>741</span>评论
+                            <span class="tep">|</span>
+                            <span>98%</span>好评
+                        </p>
+                    </div>
+                </li>
+                <!-- 第二行结束 -->
+                <li>
+                    <div class="hot_pro">
+                        <a href="Javascript:;;">
+                            <img src="./images/center/center2-1.jpg" alt="">
+                        </a>
+                        <p>
+                            <a href="Javascript:;;">美若康沐氧10片装</a>
+                        </p>
+                        <p>
+                            <span class="price">¥45.00</span>
+                            <span class="tag">降价</span>
+                        </p>
+                        <p class="pro_com">
+                            <span>741</span>评论
+                            <span class="tep">|</span>
+                            <span>98%</span>好评
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <div class="hot_pro">
+                        <a href="Javascript:;;">
+                            <img src="./images/center/center2-2.png" alt="">
+                        </a>
+                        <p>
+                            <a href="Javascript:;;">美若康沐氧10片装</a>
+                        </p>
+                        <p>
+                            <span class="price">¥45.00</span>
+                            <span class="tag">降价</span>
+                        </p>
+                        <p class="pro_com">
+                            <span>741</span>评论
+                            <span class="tep">|</span>
+                            <span>98%</span>好评
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <div class="hot_pro">
+                        <a href="Javascript:;;">
+                            <img src="./images/center/center2-3.jpg" alt="">
+                        </a>
+                        <p>
+                            <a href="Javascript:;;">美若康沐氧10片装</a>
+                        </p>
+                        <p>
+                            <span class="price">¥45.00</span>
+                            <span class="tag">降价</span>
+                        </p>
+                        <p class="pro_com">
+                            <span>741</span>评论
+                            <span class="tep">|</span>
+                            <span>98%</span>好评
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <div class="hot_pro">
+                        <a href="Javascript:;;">
+                            <img src="./images/center/center2-4.jpg" alt="">
+                        </a>
+                        <p>
+                            <a href="Javascript:;;">美若康沐氧10片装</a>
+                        </p>
+                        <p>
+                            <span class="price">¥45.00</span>
+                            <span class="tag">降价</span>
+                        </p>
+                        <p class="pro_com">
+                            <span>741</span>评论
+                            <span class="tep">|</span>
+                            <span>98%</span>好评
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <div class="hot_pro">
+                        <a href="Javascript:;;">
+                            <img src="./images/center/center2-1.jpg" alt="">
+                        </a>
+                        <p>
+                            <a href="Javascript:;;">美若康沐氧10片装</a>
+                        </p>
+                        <p>
+                            <span class="price">¥45.00</span>
+                            <span class="tag">降价</span>
+                        </p>
+                        <p class="pro_com">
+                            <span>741</span>评论
+                            <span class="tep">|</span>
+                            <span>98%</span>好评
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <div class="hot_pro">
+                        <a href="Javascript:;;">
+                            <img src="./images/center/center2-2.png" alt="">
+                        </a>
+                        <p>
+                            <a href="Javascript:;;">美若康沐氧10片装</a>
+                        </p>
+                        <p>
+                            <span class="price">¥45.00</span>
+                            <span class="tag">降价</span>
+                        </p>
+                        <p class="pro_com">
+                            <span>741</span>评论
+                            <span class="tep">|</span>
+                            <span>98%</span>好评
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <div class="hot_pro">
+                        <a href="Javascript:;;">
+                            <img src="./images/center/center2-3.jpg" alt="">
+                        </a>
+                        <p>
+                            <a href="Javascript:;;">美若康沐氧10片装</a>
+                        </p>
+                        <p>
+                            <span class="price">¥45.00</span>
+                            <span class="tag">降价</span>
+                        </p>
+                        <p class="pro_com">
+                            <span>741</span>评论
+                            <span class="tep">|</span>
+                            <span>98%</span>好评
+                        </p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 内容 -->
+        <div class="w ad_ht">
+            <img src="./images/center/ad_pt1.jpg" alt="">
+        </div>
+        <!-- 隐形眼镜 -->
+        <div class="w floor baip">
+            <div class="floor_tittle">
+                <b>1F</b>
+                <h2>隐形眼镜</h2>
+            </div>
+            <div class="floor_content clear">
+                <div class="floor_cl">
+                    <div class="floor_ct">
+                        <ul>
+                            <li>博士伦</li>
+                            <li>爱尔康视康</li>
+                            <li>库博</li>
+                            <li>强生</li>
+                            <li>海昌</li>
+                            <li>Clalen</li>
+                            <li>硅水凝胶</li>
+                            <li>紫外防护</li>
+                            <li>日抛</li>
+                            <li>月抛</li>
+                        </ul>
+
+                    </div>
+                    <img src="./images/center/floor_cl.jpg" alt="">
+                </div>
+                <div class="floor_cr">
+                    <ul>
+                        <li>
+                            <div class="hot_pro">
+                                <a href="Javascript:;;">
+                                    <img src="./images/center/floor1-1.jpg" alt="">
+                                </a>
+                                <p>
+                                    <a href="Javascript:;;">美若康沐氧10片装</a>
+                                </p>
+                                <p>
+                                    <span class="price">¥45.00</span>
+                                    <span class="tag">降价</span>
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="hot_pro">
+                                <a href="Javascript:;;">
+                                    <img src="./images/center/floor1-2.jpg" alt="">
+                                </a>
+                                <p>
+                                    <a href="Javascript:;;">美若康沐氧10片装</a>
+                                </p>
+                                <p>
+                                    <span class="price">¥45.00</span>
+                                    <span class="tag">降价</span>
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="hot_pro">
+                                <a href="Javascript:;;">
+                                    <img src="./images/center/floor1-3.jpg" alt="">
+                                </a>
+                                <p>
+                                    <a href="Javascript:;;">美若康沐氧10片装</a>
+                                </p>
+                                <p>
+                                    <span class="price">¥45.00</span>
+                                    <span class="tag">降价</span>
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="hot_pro">
+                                <a href="Javascript:;;">
+                                    <img src="./images/center/floor1-4.jpg" alt="">
+                                </a>
+                                <p>
+                                    <a href="Javascript:;;">美若康沐氧10片装</a>
+                                </p>
+                                <p>
+                                    <span class="price">¥45.00</span>
+                                    <span class="tag">降价</span>
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="hot_pro">
+                                <a href="Javascript:;;">
+                                    <img src="./images/center/floor1-5.jpg" alt="">
+                                </a>
+                                <p>
+                                    <a href="Javascript:;;">美若康沐氧10片装</a>
+                                </p>
+                                <p>
+                                    <span class="price">¥45.00</span>
+                                    <span class="tag">降价</span>
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="hot_pro">
+                                <a href="Javascript:;;">
+                                    <img src="./images/center/floor1-1.jpg" alt="">
+                                </a>
+                                <p>
+                                    <a href="Javascript:;;">美若康沐氧10片装</a>
+                                </p>
+                                <p>
+                                    <span class="price">¥45.00</span>
+                                    <span class="tag">降价</span>
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="hot_pro">
+                                <a href="Javascript:;;">
+                                    <img src="./images/center/floor1-2.jpg" alt="">
+                                </a>
+                                <p>
+                                    <a href="Javascript:;;">美若康沐氧10片装</a>
+                                </p>
+                                <p>
+                                    <span class="price">¥45.00</span>
+                                    <span class="tag">降价</span>
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="hot_pro">
+                                <a href="Javascript:;;">
+                                    <img src="./images/center/floor1-3.jpg" alt="">
+                                </a>
+                                <p>
+                                    <a href="Javascript:;;">美若康沐氧10片装</a>
+                                </p>
+                                <p>
+                                    <span class="price">¥45.00</span>
+                                    <span class="tag">降价</span>
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="hot_pro">
+                                <a href="Javascript:;;">
+                                    <img src="./images/center/floor1-4.jpg" alt="">
+                                </a>
+                                <p>
+                                    <a href="Javascript:;;">美若康沐氧10片装</a>
+                                </p>
+                                <p>
+                                    <span class="price">¥45.00</span>
+                                    <span class="tag">降价</span>
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="hot_pro">
+                                <a href="Javascript:;;">
+                                    <img src="./images/center/floor1-5.jpg" alt="">
+                                </a>
+                                <p>
+                                    <a href="Javascript:;;">美若康沐氧10片装</a>
+                                </p>
+                                <p>
+                                    <span class="price">¥45.00</span>
+                                    <span class="tag">降价</span>
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="w ad_ht">
+            <img src="./images/center/612.jpg" alt="">
+        </div>
+        <!-- 彩色隐形眼镜 -->
+        <div class="w floor meit">
+            <div class="floor_tittle">
+                <b>1F</b>
+                <h2>彩色隐形眼镜</h2>
+            </div>
+            <div class="floor_content clear">
+                <div class="floor_cl">
+                    <div class="floor_ct">
+                        <ul>
+                            <li>博士伦</li>
+                            <li>爱尔康视康</li>
+                            <li>库博</li>
+                            <li>强生</li>
+                            <li>海昌</li>
+                            <li>Clalen</li>
+                            <li>硅水凝胶</li>
+                            <li>紫外防护</li>
+                            <li>日抛</li>
+                            <li>月抛</li>
+                        </ul>
+
+                    </div>
+                    <img src="./images/product/cent1.1.jpg" alt="">
+                </div>
+                <div class="floor_cr">
+                    <ul>
+                        <li>
+                            <div class="hot_pro">
+                                <a href="Javascript:;;">
+                                    <img src="./images/product/cent1.2.jpg" alt="">
+                                </a>
+                                <p>
+                                    <a href="Javascript:;;">美若康沐氧10片装</a>
+                                </p>
+                                <p>
+                                    <span class="price">¥45.00</span>
+                                    <span class="tag">降价</span>
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="hot_pro">
+                                <a href="Javascript:;;">
+                                    <img src="./images/product/cent1.3.jpg" alt="">
+                                </a>
+                                <p>
+                                    <a href="Javascript:;;">美若康沐氧10片装</a>
+                                </p>
+                                <p>
+                                    <span class="price">¥45.00</span>
+                                    <span class="tag">降价</span>
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="hot_pro">
+                                <a href="Javascript:;;">
+                                    <img src="./images/product/cent1.4.jpg" alt="">
+                                </a>
+                                <p>
+                                    <a href="Javascript:;;">美若康沐氧10片装</a>
+                                </p>
+                                <p>
+                                    <span class="price">¥45.00</span>
+                                    <span class="tag">降价</span>
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="hot_pro">
+                                <a href="Javascript:;;">
+                                    <img src="./images/product/cent1.5.jpg" alt="">
+                                </a>
+                                <p>
+                                    <a href="Javascript:;;">美若康沐氧10片装</a>
+                                </p>
+                                <p>
+                                    <span class="price">¥45.00</span>
+                                    <span class="tag">降价</span>
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="hot_pro">
+                                <a href="Javascript:;;">
+                                    <img src="./images/product/cent1.6.jpg" alt="">
+                                </a>
+                                <p>
+                                    <a href="Javascript:;;">美若康沐氧10片装</a>
+                                </p>
+                                <p>
+                                    <span class="price">¥45.00</span>
+                                    <span class="tag">降价</span>
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="hot_pro">
+                                <a href="Javascript:;;">
+                                    <img src="./images/product/cent1.7.jpg" alt="">
+                                </a>
+                                <p>
+                                    <a href="Javascript:;;">美若康沐氧10片装</a>
+                                </p>
+                                <p>
+                                    <span class="price">¥45.00</span>
+                                    <span class="tag">降价</span>
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="hot_pro">
+                                <a href="Javascript:;;">
+                                    <img src="./images/product/cent1.8.jpg" alt="">
+                                </a>
+                                <p>
+                                    <a href="Javascript:;;">美若康沐氧10片装</a>
+                                </p>
+                                <p>
+                                    <span class="price">¥45.00</span>
+                                    <span class="tag">降价</span>
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="hot_pro">
+                                <a href="Javascript:;;">
+                                    <img src="./images/product/cent1.9.jpg" alt="">
+                                </a>
+                                <p>
+                                    <a href="Javascript:;;">美若康沐氧10片装</a>
+                                </p>
+                                <p>
+                                    <span class="price">¥45.00</span>
+                                    <span class="tag">降价</span>
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="hot_pro">
+                                <a href="Javascript:;;">
+                                    <img src="./images/product/cent2.0.jpg" alt="">
+                                </a>
+                                <p>
+                                    <a href="Javascript:;;">美若康沐氧10片装</a>
+                                </p>
+                                <p>
+                                    <span class="price">¥45.00</span>
+                                    <span class="tag">降价</span>
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="hot_pro">
+                                <a href="Javascript:;;">
+                                    <img src="./images/product/cent2.1.jpg" alt="">
+                                </a>
+                                <p>
+                                    <a href="Javascript:;;">美若康沐氧10片装</a>
+                                </p>
+                                <p>
+                                    <span class="price">¥45.00</span>
+                                    <span class="tag">降价</span>
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="w ad_ht">
+            <img src="./images/center/ad_pt1.jpg" alt="">
+        </div>
+        <!-- 护理液 -->
+        <div class="w floor">
+            <div class="floor_tittle">
+                <b>1F</b>
+                <h2>护理液</h2>
+            </div>
+            <div class="floor_content clear">
+                <div class="floor_cl">
+                    <div class="floor_ct">
+                        <ul>
+                            <li>博士伦</li>
+                            <li>爱尔康视康</li>
+                            <li>库博</li>
+                            <li>强生</li>
+                            <li>海昌</li>
+                            <li>Clalen</li>
+                            <li>硅水凝胶</li>
+                            <li>紫外防护</li>
+                            <li>日抛</li>
+                            <li>月抛</li>
+                        </ul>
+
+                    </div>
+                    <img src="./images/product/cent2.2.jpg" alt="">
+                </div>
+                <div class="floor_cr">
+                    <ul>
+                        <li>
+                            <div class="hot_pro">
+                                <a href="Javascript:;;">
+                                    <img src="./images/center/cent2.3.jpg" alt="">
+                                </a>
+                                <p>
+                                    <a href="Javascript:;;">美若康沐氧10片装</a>
+                                </p>
+                                <p>
+                                    <span class="price">¥45.00</span>
+                                    <span class="tag">降价</span>
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="hot_pro">
+                                <a href="Javascript:;;">
+                                    <img src="./images/center/cent2.4.jpg" alt="">
+                                </a>
+                                <p>
+                                    <a href="Javascript:;;">美若康沐氧10片装</a>
+                                </p>
+                                <p>
+                                    <span class="price">¥45.00</span>
+                                    <span class="tag">降价</span>
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="hot_pro">
+                                <a href="Javascript:;;">
+                                    <img src="./images/center/cent2.5.jpg" alt="">
+                                </a>
+                                <p>
+                                    <a href="Javascript:;;">美若康沐氧10片装</a>
+                                </p>
+                                <p>
+                                    <span class="price">¥45.00</span>
+                                    <span class="tag">降价</span>
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="hot_pro">
+                                <a href="Javascript:;;">
+                                    <img src="./images/center/cent2.6.jpg" alt="">
+                                </a>
+                                <p>
+                                    <a href="Javascript:;;">美若康沐氧10片装</a>
+                                </p>
+                                <p>
+                                    <span class="price">¥45.00</span>
+                                    <span class="tag">降价</span>
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="hot_pro">
+                                <a href="Javascript:;;">
+                                    <img src="./images/center/cent2.7.jpg" alt="">
+                                </a>
+                                <p>
+                                    <a href="Javascript:;;">美若康沐氧10片装</a>
+                                </p>
+                                <p>
+                                    <span class="price">¥45.00</span>
+                                    <span class="tag">降价</span>
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="hot_pro">
+                                <a href="Javascript:;;">
+                                    <img src="./images/center/cent2.8.jpg" alt="">
+                                </a>
+                                <p>
+                                    <a href="Javascript:;;">美若康沐氧10片装</a>
+                                </p>
+                                <p>
+                                    <span class="price">¥45.00</span>
+                                    <span class="tag">降价</span>
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="hot_pro">
+                                <a href="Javascript:;;">
+                                    <img src="./images/center/cent2.9.jpg" alt="">
+                                </a>
+                                <p>
+                                    <a href="Javascript:;;">美若康沐氧10片装</a>
+                                </p>
+                                <p>
+                                    <span class="price">¥45.00</span>
+                                    <span class="tag">降价</span>
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="hot_pro">
+                                <a href="Javascript:;;">
+                                    <img src="./images/center/cent3.0.jpg" alt="">
+                                </a>
+                                <p>
+                                    <a href="Javascript:;;">美若康沐氧10片装</a>
+                                </p>
+                                <p>
+                                    <span class="price">¥45.00</span>
+                                    <span class="tag">降价</span>
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="hot_pro">
+                                <a href="Javascript:;;">
+                                    <img src="./images/center/cent3.1.jpg" alt="">
+                                </a>
+                                <p>
+                                    <a href="Javascript:;;">美若康沐氧10片装</a>
+                                </p>
+                                <p>
+                                    <span class="price">¥45.00</span>
+                                    <span class="tag">降价</span>
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="hot_pro">
+                                <a href="Javascript:;;">
+                                    <img src="./images/center/cent3.2.jpg" alt="">
+                                </a>
+                                <p>
+                                    <a href="Javascript:;;">美若康沐氧10片装</a>
+                                </p>
+                                <p>
+                                    <span class="price">¥45.00</span>
+                                    <span class="tag">降价</span>
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- 护理工具 -->
+        <div class="w floor">
+            <div class="floor_tittle">
+                <b>1F</b>
+                <h2>护理工具</h2>
+            </div>
+            <div class="floor_content clear">
+                <div class="floor_cl">
+                    <div class="floor_ct">
+
+                    </div>
+                    <img src="./images/center/cent3.3.jpg" alt="">
+                </div>
+                <div class="floor_cr">
+                    <ul>
+                        <li>
+                            <div class="hot_pro">
+                                <a href="Javascript:;;">
+                                    <img src="./images/center/cent3.8.png" alt="">
+                                </a>
+                                <p>
+                                    <a href="Javascript:;;">美若康沐氧10片装</a>
+                                </p>
+                                <p>
+                                    <span class="price">¥45.00</span>
+                                    <span class="tag">降价</span>
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="hot_pro">
+                                <a href="Javascript:;;">
+                                    <img src="./images/center/cent3.4.jpg" alt="">
+                                </a>
+                                <p>
+                                    <a href="Javascript:;;">美若康沐氧10片装</a>
+                                </p>
+                                <p>
+                                    <span class="price">¥45.00</span>
+                                    <span class="tag">降价</span>
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="hot_pro">
+                                <a href="Javascript:;;">
+                                    <img src="./images/center/cent3.5.jpg" alt="">
+                                </a>
+                                <p>
+                                    <a href="Javascript:;;">美若康沐氧10片装</a>
+                                </p>
+                                <p>
+                                    <span class="price">¥45.00</span>
+                                    <span class="tag">降价</span>
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="hot_pro">
+                                <a href="Javascript:;;">
+                                    <img src="./images/center/cent3.6.jpg" alt="">
+                                </a>
+                                <p>
+                                    <a href="Javascript:;;">美若康沐氧10片装</a>
+                                </p>
+                                <p>
+                                    <span class="price">¥45.00</span>
+                                    <span class="tag">降价</span>
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="hot_pro">
+                                <a href="Javascript:;;">
+                                    <img src="./images/center/cent3.7.jpg" alt="">
+                                </a>
+                                <p>
+                                    <a href="Javascript:;;">美若康沐氧10片装</a>
+                                </p>
+                                <p>
+                                    <span class="price">¥45.00</span>
+                                    <span class="tag">降价</span>
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="hot_pro">
+                                <a href="Javascript:;;">
+                                    <img src="./images/center/cent4.3.jpg" alt="">
+                                </a>
+                                <p>
+                                    <a href="Javascript:;;">美若康沐氧10片装</a>
+                                </p>
+                                <p>
+                                    <span class="price">¥45.00</span>
+                                    <span class="tag">降价</span>
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="hot_pro">
+                                <a href="Javascript:;;">
+                                    <img src="./images/center/cent3.9.jpg" alt="">
+                                </a>
+                                <p>
+                                    <a href="Javascript:;;">美若康沐氧10片装</a>
+                                </p>
+                                <p>
+                                    <span class="price">¥45.00</span>
+                                    <span class="tag">降价</span>
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="hot_pro">
+                                <a href="Javascript:;;">
+                                    <img src="./images/center/cent4.0.jpg" alt="">
+                                </a>
+                                <p>
+                                    <a href="Javascript:;;">美若康沐氧10片装</a>
+                                </p>
+                                <p>
+                                    <span class="price">¥45.00</span>
+                                    <span class="tag">降价</span>
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="hot_pro">
+                                <a href="Javascript:;;">
+                                    <img src="./images/center/cent4.1.jpg" alt="">
+                                </a>
+                                <p>
+                                    <a href="Javascript:;;">美若康沐氧10片装</a>
+                                </p>
+                                <p>
+                                    <span class="price">¥45.00</span>
+                                    <span class="tag">降价</span>
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="hot_pro">
+                                <a href="Javascript:;;">
+                                    <img src="./images/center/cent4.2.jpg" alt="">
+                                </a>
+                                <p>
+                                    <a href="Javascript:;;">美若康沐氧10片装</a>
+                                </p>
+                                <p>
+                                    <span class="price">¥45.00</span>
+                                    <span class="tag">降价</span>
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="w floor">
+            <div class="div_news">
+                <div class="top_tittle">
+                    <img src="./images/center/yjxt.png" alt="">
+                    <h2>眼镜学堂</h2>
+                </div>
+                <div class="news_ct">
+                    <div class="news_nr">
+                        <img src="./images/center/floor_nr.jpg" alt="">
+                    </div>
+                    <ul>
+                        <li class="top">
+                            <a href="JavaScript:;;">
+                                <img src="./images/center/news_l.png" alt="">
+                            </a>
+                            <div class="tittle">
+                                <a href="JavaScript:;;">蔡司隐形眼镜，高性价比之选</a>
+                            </div>
+                        </li>
+                        <li>
+                            <span>●</span>&nbsp&nbsp博士顿新洁，点亮“睛”彩人生
+                        </li>
+                        <li>
+                            <span>●</span>&nbsp&nbspenvie美瞳官网，展示不同亮眸
+                        </li>
+                        <li>
+                            <span>●</span>&nbsp&nbspenvie美尼康官网，关注隐形眼镜护理
+                        </li>
+                    </ul>
+                    <ul style="margin-left: 40px">
+                        <li class="top">
+                            <a href="JavaScript:;;">
+                                <img src="./images/center/news_l2.png" alt="">
+                            </a>
+                            <div class="tittle">
+                                <a href="JavaScript:;;">蔡司隐形眼镜，高性价比之选</a>
+                            </div>
+                        </li>
+                        <li>
+                            <span>●</span>&nbsp&nbsp博士顿新洁，点亮“睛”彩人生
+                        </li>
+                        <li>
+                            <span>●</span>&nbsp&nbspenvie美瞳官网，展示不同亮眸
+                        </li>
+                        <li>
+                            <span>●</span>&nbsp&nbspenvie美尼康官网，关注隐形眼镜护理
+                        </li>
+                    </ul>
+                    <ul style="margin-top: 25px">
+                        <li class="top">
+                            <a href="JavaScript:;;">
+                                <img src="./images/center/news_l3.png" alt="">
+                            </a>
+                            <div class="tittle">
+                                <a href="JavaScript:;;">蔡司隐形眼镜，高性价比之选</a>
+                            </div>
+                        </li>
+                        <li>
+                            <span>●</span>&nbsp&nbsp博士顿新洁，点亮“睛”彩人生
+                        </li>
+                        <li>
+                            <span>●</span>&nbsp&nbspenvie美瞳官网，展示不同亮眸
+                        </li>
+                        <li>
+                            <span>●</span>&nbsp&nbspenvie美尼康官网，关注隐形眼镜护理
+                        </li>
+                    </ul>
+                    <ul style="margin-left: 40px;margin-top: 25px">
+                        <li class="top">
+                            <a href="JavaScript:;;">
+                                <img src="./images/center/news_l4.jpg" alt="">
+                            </a>
+                            <div class="tittle">
+                                <a href="JavaScript:;;">蔡司隐形眼镜，高性价比之选</a>
+                            </div>
+                        </li>
+                        <li>
+                            <span>●</span>&nbsp&nbsp博士顿新洁，点亮“睛”彩人生
+                        </li>
+                        <li>
+                            <span>●</span>&nbsp&nbspenvie美瞳官网，展示不同亮眸
+                        </li>
+                        <li>
+                            <span>●</span>&nbsp&nbspenvie美尼康官网，关注隐形眼镜护理
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- 左边菜单 -->
+        <div class="w">
+            <div class="lmenu" style="display: none">
+                <ul>
+                    <li>
+                        <a href="">
+                            <b class="f0"></b>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <b class="f1"></b>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <b class="f2"></b>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <b class="f3"></b>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <b class="f4"></b>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+    <!---------------------------中间区域结束------------------------------>
+
+    <!-- 帮助区 -->
+    <div class="help clear">
+        <div class="text">
+            <h4>
+                <b style="background: url(./images/center/help.png) 0px 0px no-repeat"></b>
+                <span>购物指南</span>
+            </h4>
+            <ul>
+                <li>新手上路</li>
+                <li>订单状态</li>
+                <li>活动相关问题</li>
+                <li>优惠券使用指南</li>
+            </ul>
+        </div>
+        <div class="text">
+            <h4>
+                <b style="background: url(./images/center/help.png) -228px 0px no-repeat"></b>
+                <span>购物指南</span>
+            </h4>
+            <ul>
+                <li>新手上路</li>
+                <li>订单状态</li>
+                <li>活动相关问题</li>
+                <li>优惠券使用指南</li>
+            </ul>
+        </div>
+        <div class="text">
+            <h4>
+                <b style="background: url(./images/center/help.png) -110px 0px no-repeat"></b>
+                <span>购物指南</span>
+            </h4>
+            <ul>
+                <li>新手上路</li>
+                <li>订单状态</li>
+                <li>活动相关问题</li>
+                <li>优惠券使用指南</li>
+            </ul>
+        </div>
+        <div class="text">
+            <h4>
+                <b style="background: url(./images/center/help.png) -188px 0px no-repeat"></b>
+                <span>购物指南</span>
+            </h4>
+            <ul>
+                <li>新手上路</li>
+                <li>订单状态</li>
+                <li>活动相关问题</li>
+                <li>优惠券使用指南</li>
+            </ul>
+        </div>
+        <div class="text">
+            <h4>
+                <b style="background: url(./images/center/help.png) -74px 0px no-repeat"></b>
+                <span>购物指南</span>
+            </h4>
+            <ul>
+                <li>新手上路</li>
+                <li>订单状态</li>
+                <li>活动相关问题</li>
+                <li>优惠券使用指南</li>
+            </ul>
+        </div>
+        <div class="text">
+            <h4>
+                <b style="background: url(./images/center/help.png) -35px 0px no-repeat"></b>
+                <span>购物指南</span>
+            </h4>
+            <ul>
+                <li>新手上路</li>
+                <li>订单状态</li>
+                <li>活动相关问题</li>
+                <li>优惠券使用指南</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 友情链接 -->
+    <div class="link clear">
+        <div class="linkname">友情链接</div>
+        <div class="scroll"></div>
+    </div>
+
+    <!-- 底部 -->
+    <div class="w bot" style="margin-top: 10px">
+        <div class="shallow">
+            <p>Copyright ©2019 南京视客网络科技有限公司 版权所有. 法律顾问：秦在丛（执业编号：13201200411564699）</p>
+            <p>苏ICP备12054666号 &nbsp&nbsp&nbsp&nbsp ICP经营许可证：苏B2-20170205 &nbsp&nbsp&nbsp&nbsp
+                医疗器械经营许可证：苏宁食药监械经营许20170464号 &nbsp&nbsp&nbsp&nbsp 互联网药品信息服务资格证书编号：(苏)-经营性-2017-0005 &nbsp&nbsp
+                <span>
+                    <img src="./images/center/police.png">
+                </span>
+                苏公网安备 32010402000492号</p>
+        </div>
+        <div class="bot_img">
+            <img src="./images/center/foot_zl.png" alt="">
+        </div>
+
+
+    </div>
+
+
+    <!-- 侧边导航 -->
+    <div class="fix_box">
+        <img src="./images/center/fixed_img.jpg" alt="">
+        <ul>
+            <li class="sun">
+                <a href="Javascript:;;">
+                    <i class="fbox_one icon"></i>
+                </a>
+                <div class="link_tips">回到首页</div>
+            </li>
+            <li style="position: relative">
+                <a href="./shopping.html" style="padding: 17px 0px">
+                    <i style="height: auto" class="iCarts">购物车</i>
+                </a>
+            </li>
+            <li>
+                <a href="Javascript:;;" style="border-bottom: none;padding-top: 17px;padding-bottom: 17px">
+                    <i style="writing-mode: rl;line-height: 19px">会员中心</i>
+                </a>
+            </li>
+            <li>
+                <a href="Javascript:;;" style="padding-top: 14px;padding-bottom: 14px">
+                    <i style="line-height: 19px;writing-mode: rl;">在线客服</i>
+                </a>
+            </li>
+            <li>
+                <a href="Javascript:;;" style="border-bottom: none">
+                    <i class="iwechat icon"></i>
+                </a>
+            </li>
+            <li>
+                <a href="Javascript:;;" style="border-bottom: none">
+                    <i class="iweibo icon"></i>
+                </a>
+            </li>
+        </ul>
+        <div class="backtop">
+            <li>
+                <a href="Javascript:;;">
+                    <i class="arrow"></i>
+                </a>
+            </li>
+        </div>
+    </div>
+
+</body>
+
+</html>

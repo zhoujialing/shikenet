@@ -1,0 +1,38 @@
+[
+    {
+        "pid":1001,
+        "uname":"库博清氧30片装",
+        "pname":"库博清氧清硅水凝胶隐形眼镜日抛30片装",
+        "pprice":"49.00",
+        "brand":"库博",
+        "imgSm":[{"url":"./images/product/sm1.jpg"},{"url":"./images/product/sm2.jpg"},{"url":"./images/product/sm3.jpg"},{"url":"./images/product/sm4.jpg"}],
+        "imgBg":[{"url":"./images/product/big1.jpg"},{"url":"./images/product/big2.jpg"},{"url":"./images/product/big3.jpg"},{"url":"./images/product/big4.jpg"}],
+        "imgMid":"url(./images/product/big1.jpg)",
+        "url":"./images/center/center0-2.jpg",
+        "carturl":"./images/product/sm1.jpg"
+    },
+    {
+        "pid":1002,
+        "uname":"美若康沐氧10片装",
+        "pname":"Miacare美若康沐氧硅水凝胶隐形眼镜日抛10片装",
+        "pprice":"59.00",
+        "brand":"美若康",
+        "imgSm":[{"url":"./images/product/sm5.jpg"},{"url":"./images/product/sm6.jpg"},{"url":"./images/product/sm7.jpg"},{"url":"./images/product/sm8.jpg"}],
+        "imgMid": "url(./images/product/bg5.jpg)",
+        "imgBg":[{"url":"./images/product/bg5.jpg"},{"url":"./images/product/bg6.jpg"},{"url":"./images/product/bg7.jpg"},{"url":"./images/product/bg8.jpg"}],
+        "url":"./images/center/center0-1.jpg",
+        "carturl":"./images/product/sm5.jpg"
+    },
+    {
+        "pid":1003,
+        "uname":"领丽秀日抛彩色110片装",
+        "pname":"领丽秀LALISH日抛彩色隐形眼镜10片装",
+        "pprice":"69.00",
+        "brand":"领丽秀",
+        "imgSm":[{"url":"./images/product/sm1.1.jpg"},{"url":"./images/product/sm1.2.jpg"},{"url":"./images/product/sm1.3.jpg"},{"url":"./images/product/sm1.4.jpg"}],
+        "imgMid": "url(./images/product/bg1.1.jpg)",
+        "imgBg":[{"url":"./images/product/bg1.1.jpg"},{"url":"./images/product/bg1.2.jpg"},{"url":"./images/product/bg1.3.jpg"},{"url":"./images/product/bg1.4.jpg"}],
+        "url":"./images/center/center1-1.jpg",
+        "carturl":"./images/product/sm1.1.jpg"
+    }
+]

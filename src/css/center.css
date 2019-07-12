@@ -1,0 +1,460 @@
+/* 中间 */
+
+.center {
+  width: 100%;
+  /* height: 4436px; */
+  background: url(./../images/center/bg.jpg) no-repeat top center;
+}
+
+.center .focus {
+  width: 780px;
+  height: 320px;
+  padding-left: 200px;
+  overflow: hidden;
+  position: relative;
+}
+.center .focus .fo_img {
+  height: 320px;
+  position: absolute;
+}
+.center .focus .btn{
+  display: none;
+}
+.center .focus .btn_left{
+  width: 45px;
+  height: 100px;
+  position: absolute;
+  top: 139px;
+  opacity: 0.2;
+  background: url(./../images/center/slide_btn.png) no-repeat 0 0;
+}
+.center .focus .btn_right{
+  width: 45px;
+  height: 100px;
+  position: absolute;
+  top: 139px;
+  right: 0px;
+  opacity: 0.2;
+  background: url(./../images/center/slide_btn.png) no-repeat right top;
+}
+
+.center .focus .fo_nav {
+  position: absolute;
+  bottom: 15px;
+  left: 60%;
+  height: 13px;
+  margin-left: -50px;
+  z-index: 999;
+}
+.center .focus .fo_nav li {
+  margin: 2px;
+  display: inline-block;
+  background-color: #b7b7b7;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+.center .focus .fo_nav li.cur{
+  background-color: #e02f26;
+}
+/* tab栏 */
+.center .w3 {
+  margin-top: 5px;
+  height: 198px;
+}
+.center .w3 .new {
+  width: 200px;
+  height: 196px;
+  border-bottom: 1px solid #e0e0e0;
+}
+.center .w3 .new .in_pro {
+  width: 199px;
+  height: 32px;
+}
+.center .w3 .new .in_pro .active{
+  background: url(./../images/center/index_bg.jpg)no-repeat 0px -279px;
+  font-weight: bold;
+}
+.center .w3 .new .in_pro li {
+  width: 99px;
+  height: 27px;
+  float: left;
+  line-height: 27px;
+  text-align: center;
+  padding-top: 5px;
+  background: url(./../images/center/index_bg.jpg)no-repeat 0 -311px;
+}
+
+.center .w3 .new .w3_content {
+  width: 198px;
+  height: 152px;
+  padding-top: 11px;
+  position: absolute;
+  box-sizing: border-box;
+}
+.center .w3 .new .w3_content>ul>li {
+  width: 100%;
+  text-align: left;
+  padding-left: 12px;
+  box-sizing: border-box;
+  height: 25px;
+  line-height: 15px;
+  font-size: 12px;
+}
+.center .w3 .new .w3_content span {
+  float: right;
+  color: #666;
+}
+.center .w3 .silde_c {
+  display: flex;
+}
+.center .w3 .silde_c li {
+  border: 1px solid #efefef;
+  margin-right: 1px;
+}
+.center .lmenu{
+  position: fixed;
+  top: 155px;
+  margin-left: -65px;
+}
+.center .lmenu b{
+  background: url(./../images/index_lmenu.png);
+  width: 53px;
+  height: 59px;
+  float: left;
+}
+.center .lmenu .f1{
+  background-position: 0px -59px;
+}
+.center .lmenu .f2{
+  background-position: 0px -118px;
+}
+.center .lmenu .f3{
+  background-position: 0px -177px;
+}
+.center .lmenu .f4{
+  background-position: 0px -231px;
+}
+
+
+
+
+
+/* 頂部品牌图标 */
+.top_logo {
+  margin: 10px auto;
+  padding: 10px 0px;
+  border-top: 1px solid #efefef;
+  border-bottom: 1px solid #efefef;
+}
+.top_logo ul {
+  display: flex;
+}
+.top_logo ul li {
+  margin-left: 9px;
+  border: 1px solid #eee;
+  box-shadow: 1px 5px 11px #ccc;
+}
+
+/* 热卖单品 */
+.hot {
+  margin-top: 20px;
+}
+.hot .hot_h {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+.hot .hot_h h3 {
+  font-size: 16px;
+  width: 71px;
+  font-weight: 600;
+}
+.hot .hot_h .hot_key ul {
+  width: 222px;
+  display: flex;
+}
+
+.hot .hot_h .hot_key ul span {
+  color: #ececec;
+  padding: 0 5px;
+}
+.hot>ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+.hot>ul li {
+  width: 14.28571%;
+  margin-bottom: 15px;
+}
+.hot>ul li .hot_pro {
+  width: 140px;
+  height: 188px;
+  margin: 0 auto;
+}
+.hot ul li .hot_pro1 a p:nth-child(2) {
+  height: 20px;
+  line-height: 20px;
+  font-weight: 400;
+}
+.hot ul li .hot_pro1 a p:nth-child(3) {
+  height: 18px;
+  line-height: 18px;
+}
+.hot ul li .hot_pro1 img {
+  width: 120px;
+  height: 120px;
+  padding: 0 10px;
+}
+.hot ul li .hot_pro .price {
+  color: #e02f26;
+  margin-right: 5px;
+}
+.hot ul li .hot_pro .tag {
+  color: #fff;
+  background-color: #8bc144;
+  padding: 0 2px;
+}
+.hot ul li .hot_pro .pro_com {
+  height: 19px;
+  line-height: 19px;
+  color: #9c9c9c;
+}
+.hot ul li .hot_pro .pro_com span {
+  margin-right: 5px;
+}
+.hot ul li .hot_pro .pro_com .tep {
+  margin: 0;
+  padding: 0 5px;
+  color: #ececec;
+}
+/* 添加的图片 */
+.ad_ht {
+  margin-top: 10px;
+}
+/* 内容 */
+.floor {
+  margin-top: 20px;
+}
+.floor .floor_tittle {
+  height: 45px;
+  display: flex;
+  border-bottom: 2px solid #9c9c9c;
+}
+.floor .floor_tittle b {
+  width: 30px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  color: #fff;
+  background: url(./../images/center/index_bg.jpg) -37px -577px no-repeat;
+}
+.floor .floor_tittle h2 {
+  margin-left: 15px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 18px;
+  color: #333;
+  font-weight: bold;
+}
+.floor .floor_content {
+  border-bottom: 1px solid #efefef;
+}
+.floor .floor_content .floor_cl {
+  width: 210px;
+  float: left;
+  border-right: 1px solid #efefef;
+}
+.floor .floor_content .floor_cl .floor_ct {
+  height: 180px;
+  padding: 10px;
+}
+.floor .floor_content .floor_cl .floor_ct li {
+  width: 90px;
+  height: 25px;
+  line-height: 25px;
+  float: left;
+}
+.floor .floor_content .floor_cl .floor_ct img {
+  width: 205px;
+  height: 250px;
+}
+.floor .floor_content .floor_cr {
+  float: right;
+  width: 970px;
+}
+.floor .floor_content .floor_cr ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+.floor .floor_content .floor_cr li {
+  width: 160px;
+  padding: 10px 17px 10px 17px;
+}
+.floor .floor_content .floor_cr li p {
+  height: 25px;
+  line-height: 25px;
+  padding-left: 10px;
+}
+
+.floor .floor_content .floor_cr li p span:nth-child(1) {
+  color: #e02f26;
+  font-size: 14px;
+  margin-right: 5px;
+}
+.floor .floor_content .floor_cr li p span:nth-child(2) {
+  color: #fff;
+  background-color: #8bc144;
+  padding: 0px 2px;
+}
+
+/* 眼镜新闻 */
+.floor .div_news {
+  widows: 1200px;
+  height: 700px;
+  margin-left: 10px;
+}
+.floor .div_news .top_tittle {
+  height: 45px;
+  line-height: 50px;
+  border-bottom: 2px solid #9c9c9c;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+.floor .div_news .top_tittle h2 {
+  margin-left: 10px;
+  height: 30px;
+  width: 200px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 30px;
+}
+.floor .div_news .news_ct .news_nr {
+  float: right;
+}
+.floor .div_news .news_ct ul {
+  width: 400px;
+  border-bottom: 1px solid #cccccc;
+  float: left;
+}
+.floor .div_news .news_ct .top {
+  width: 400px;
+  height: 180px;
+}
+.floor .div_news .news_ct .top img {
+  display: block;
+  width: 400px;
+  height: 180px;
+}
+.floor .div_news .news_ct .top .tittle {
+  display: block;
+  width: 385px;
+  height: 40px;
+  line-height: 40px;
+  background-color: #211d1d;
+  opacity: 0.5;
+  color: #fff;
+  margin-top: -40px;
+  padding-left: 15px;
+}
+.floor .div_news .news_ct .top .tittle a {
+  color: #fff;
+}
+.floor .div_news .news_ct li {
+  font-size: 12px;
+  height: 35px;
+  line-height: 35px;
+}
+.floor .div_news .news_ct li span {
+  width: 20px;
+  color: gray;
+}
+
+/* 侧边导航 */
+.fix_box {
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: #000;
+  width: 35px;
+}
+/* .fix_box ul{
+  overflow: hidden;
+} */
+.fix_box ul li{
+  position: relative;
+  width: 100%;
+}
+.fix_box ul li a{
+  color: #fff;
+  display: block;
+  width: 24px;
+  margin: 0 auto;
+  padding: 4px 0;
+  border-bottom: 1px solid #626161;
+}
+.fix_box ul li a i{
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  line-height: 25px;
+  font-style: normal;
+  
+}
+.fix_box .link_tips{
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+  width: 92px;
+  position: absolute;
+  left: -115px;
+  top: 10px;
+  z-index: 999;
+  background: #000;
+  color: #666;
+  display: block;
+  visibility: visible;
+}
+.fix_box ul li a .icon{
+  background: url(./../images/center/sideBar.png);
+  height: 50px;
+}
+.fix_box ul .sun a{
+  height: 41px;
+}
+.fix_box ul .sun a .fbox_one{
+  background-position: -1px 0px;
+  height: 45px;
+  background-size: 115%;
+}
+.fix_box ul li a .iCarts{
+  font-size: 14px;
+  background-position: -4px -236px;
+  writing-mode: tb-rl;
+}
+.fix_box ul li a .iwechat{
+  background-position: -5px -38px;
+  height: 50px;
+  background-size: 134%;
+}
+.fix_box ul li a .iweibo{
+  background-position: -4px -84px;
+  height: 50px;
+}
+.backtop{
+  position: absolute;
+  height: 45px;
+  width: 35px;
+  bottom: 0px;
+}
+.backtop .arrow{
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 45px;
+  background: url(./../images/quick_bar.jpg)no-repeat 0 -556px;
+
+}
